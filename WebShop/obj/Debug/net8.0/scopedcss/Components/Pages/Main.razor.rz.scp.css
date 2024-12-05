@@ -1,0 +1,105 @@
+
+body[b-l4n9lvrpot] {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.banner[b-l4n9lvrpot] {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #333;
+    color: #ffffff;
+}
+
+    .banner h1[b-l4n9lvrpot] {
+        color: white;
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .banner p[b-l4n9lvrpot] {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+h2[b-l4n9lvrpot]{
+    color:white;
+}
+.cta-button[b-l4n9lvrpot] {
+    padding: 0.8rem 1.5rem;
+    background-color: #CC823F;
+    color: #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+    .cta-button:hover[b-l4n9lvrpot] {
+        background-color: #ad7542;
+    }
+
+.popular-products[b-l4n9lvrpot] {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.product-grid[b-l4n9lvrpot] {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.card[b-l4n9lvrpot] {
+    background: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .card:hover[b-l4n9lvrpot] {
+        transform: translateY(-5px);
+    }
+
+    .card img[b-l4n9lvrpot] {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+.card-body[b-l4n9lvrpot] {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px; /* Чтобы текст и кнопка всегда выравнивались */
+}
+
+.card-text[b-l4n9lvrpot] {
+    font-size: 1rem;
+    color: #f1f1f1;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.order-link[b-l4n9lvrpot] {
+    display: block;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #444;
+    padding: 0.75rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+    .order-link:hover[b-l4n9lvrpot] {
+        background-color: #666666;
+    }
+

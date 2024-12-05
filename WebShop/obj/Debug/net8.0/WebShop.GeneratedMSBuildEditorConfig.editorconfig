@@ -1,0 +1,71 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WebShop
+build_property.RootNamespace = WebShop
+build_property.ProjectDir = C:\Users\PC_Work\Desktop\WebShop\WebShop\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\PC_Work\Desktop\WebShop\WebShop
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/PC_Work/Desktop/WebShop/WebShop/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC_Work/Desktop/WebShop/WebShop/Components/Pages/Cart.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJ0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC_Work/Desktop/WebShop/WebShop/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC_Work/Desktop/WebShop/WebShop/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC_Work/Desktop/WebShop/WebShop/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-x299w2psqf
+
+[C:/Users/PC_Work/Desktop/WebShop/WebShop/Components/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-upbg1bxp9q
+
+[C:/Users/PC_Work/Desktop/WebShop/WebShop/Components/Pages/Catalog.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXRhbG9nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-j6q90gfod3
+
+[C:/Users/PC_Work/Desktop/WebShop/WebShop/Components/Pages/Contacts.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb250YWN0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-rxtmqatt3z
+
+[C:/Users/PC_Work/Desktop/WebShop/WebShop/Components/Pages/Delivery.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEZWxpdmVyeS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-ukcxggubo2
+
+[C:/Users/PC_Work/Desktop/WebShop/WebShop/Components/Pages/Main.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYWluLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-l4n9lvrpot
+
+[C:/Users/PC_Work/Desktop/WebShop/WebShop/Components/Pages/Oferta.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xPZmVydGEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-courht60rh
+
+[C:/Users/PC_Work/Desktop/WebShop/WebShop/Components/Pages/Policy.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQb2xpY3kucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-qeo2qtcyv1
+
+[C:/Users/PC_Work/Desktop/WebShop/WebShop/Components/Pages/ProductCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQcm9kdWN0Q2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-6hw8ab58ri

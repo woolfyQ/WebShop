@@ -1,0 +1,64 @@
+﻿@using Core
+@using Core.DTO
+@using Core.Entity
+@using Infrastructure.Repository
+@using WebShop.Components.Layout
+
+@rendermode InteractiveServer
+@layout MainLayout
+@page "/Catalog"
+@inject ProductRepository ProductRepository
+@inject NavigationManager NavigationManager
+<PageTitle>Catalog</PageTitle>
+
+
+<div class="banner">
+    <h1>Каталог товаров</h1>
+    <p>Найдите идеальные решения для вашего сада и двора</p>
+</div>
+
+<section class="product-section">
+    <div class="product-grid">
+        <ul class="products-cards">
+            @if (productsDTO != null && productsDTO.Any())
+            {
+                foreach (var product in productsDTO)
+                {
+                    <li class="card" @onclick="() => OnProductClick(product)">
+                        <img src="@product.Img" alt="@product.Name" />
+                        <div class="card-body">
+                            <span class="title">@product.Name</span>
+                            <span class="price">@product.Price ₽</span>
+                        </div>
+                    </li>
+                }
+            }
+            else
+            {
+                <li class="no-products">Товары не найдены.</li>
+            }
+        </ul>
+    </div>
+</section>
+
+@code {
+    private IEnumerable<ProductDTO> productsDTO;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var products = await ProductRepository.GetAll();
+        productsDTO = products.Select(p => new ProductDTO
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Img = p.Img,
+                Description = p.Description,
+                Price = p.Price
+            }).ToList();
+    }
+
+    private void OnProductClick(ProductDTO product)
+    {
+        NavigationManager.NavigateTo($"/ProductCard/{product.Id}");
+    }
+}

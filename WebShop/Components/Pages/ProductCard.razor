@@ -1,0 +1,126 @@
+﻿@using Application.Services
+@using Core
+@using Core.DTO
+@using Core.Entity
+@using Infrastructure.Repository
+
+@page "/ProductCard/{ProductId:guid}"
+@rendermode InteractiveServer
+
+@inject ProductRepository productRepository
+
+@inject CartService CartService
+
+@inject HttpClient Http
+
+@inject IJSRuntime JSRuntime
+
+<div class="product-detail">
+    @if (productDTO != null)
+    {
+        <div class="product-main">
+            <!-- Левый блок с изображением и галереей -->
+            <div class="image-section">
+                <div class="main-image">
+                    <img src="@productDTO.Img" alt="@productDTO.Name" />
+                </div>
+                <div class="product-gallery">
+                    <div class="gallery-thumbnails">
+                        <img src="/pics/Kolpak1.jpg" alt="Image 1" />
+                        <img src="/pics/Kolpak1.jpg" alt="Image 2" />
+                        <img src="/pics/Kolpak1.jpg" alt="Image 3" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правый блок с описанием и кнопками -->
+            <div class="product-content">
+                <h1 class="product-title">@productDTO.Name</h1>
+                <p class="product-price">@productDTO.Price руб.</p>
+                <button class="add-to-cart" @onclick="() => AddProduct(productDTO.Id)">Добавить в корзину</button>
+                <p class="product-description">@productDTO.Description</p>
+                <ul class="product-specs">
+                    @foreach (var spec in productDTO.Specs.Split(';'))
+                    {
+                        <li>@spec</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="not-found">
+            <span>Товар не найден</span>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public Guid ProductId { get; set; }
+    public Guid cartId;
+    private ProductDTO productDTO;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var product = await productRepository.GetByIdAsync(ProductId, CancellationToken.None);
+        if (product != null)
+        {
+            productDTO = new ProductDTO
+                {
+                    Id = product.Id,
+                    Name = product.Name,
+                    Img = product.Img,
+                    Description = product.Description,
+                    Price = product.Price,
+                    Specs = product.Specs
+                };
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Выполняем логику JSInterop только после рендеринга
+            var cartIdFromCookie = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "cartId");
+
+            if (string.IsNullOrEmpty(cartIdFromCookie) || !Guid.TryParse(cartIdFromCookie, out cartId))
+            {
+                cartId = Guid.NewGuid(); // Новый идентификатор корзины
+                await JSRuntime.InvokeVoidAsync("localStorage.setItem", "cartId", cartId.ToString());
+            }
+
+            StateHasChanged(); // Обновляем состояние компонента
+        }
+    }
+
+    private async Task AddProduct(Guid productId)
+    {
+        if (productId == Guid.Empty || productDTO.Price <= 0)
+        {
+            Console.WriteLine("Некорректные данные для добавления товара в корзину");
+            return;
+        }
+
+        var addToCartDTO = new AddToCartDTO
+            {
+                ProductId = productId,
+                ProductPrice = productDTO.Price,
+                Quantity = 1
+            };
+
+        var response = await Http.PostAsJsonAsync("api/Cart/Add", addToCartDTO);
+
+        if (response.IsSuccessStatusCode)
+        {
+            Console.WriteLine("Товар добавлен в корзину");
+        }
+        else
+        {
+            var error = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Ошибка: {error}");
+        }
+    }
+}

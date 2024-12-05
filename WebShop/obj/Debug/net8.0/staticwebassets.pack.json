@@ -1,0 +1,69 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\WebShop.bundle.scp.css",
+      "PackagePath": "staticwebassets\\WebShop.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\wwwroot\\pics\\Dimka.jpg",
+      "PackagePath": "staticwebassets\\pics\\Dimka.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\wwwroot\\pics\\FaceKolp.jpg",
+      "PackagePath": "staticwebassets\\pics\\FaceKolp.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\wwwroot\\pics\\Kolpak1.jpg",
+      "PackagePath": "staticwebassets\\pics\\Kolpak1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\wwwroot\\pics\\Kolpak2.jpg",
+      "PackagePath": "staticwebassets\\pics\\Kolpak2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\wwwroot\\pics\\Kolpak3.jpg",
+      "PackagePath": "staticwebassets\\pics\\Kolpak3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\wwwroot\\pics\\Kolpak4.jpg",
+      "PackagePath": "staticwebassets\\pics\\Kolpak4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\wwwroot\\pics\\Kolpak5.jpg",
+      "PackagePath": "staticwebassets\\pics\\Kolpak5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\wwwroot\\pics\\Kolpak6.jpg",
+      "PackagePath": "staticwebassets\\pics\\Kolpak6.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebShop.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.WebShop.props",
+      "PackagePath": "build\\WebShop.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WebShop.props",
+      "PackagePath": "buildMultiTargeting\\WebShop.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.WebShop.props",
+      "PackagePath": "buildTransitive\\WebShop.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
