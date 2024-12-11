@@ -1,16 +1,13 @@
-﻿@using Core
-@using Core.DTO
-@using Core.Entity
-@using Infrastructure.Repository
-@using WebShop.Components.Layout
+﻿@using Core.DTO
+@using WebShop.Services
+@inject ProductClientService ProductClientService
+@inject NavigationManager NavigationManager
 
 @rendermode InteractiveServer
 @layout MainLayout
 @page "/Catalog"
-@inject ProductRepository ProductRepository
-@inject NavigationManager NavigationManager
-<PageTitle>Catalog</PageTitle>
 
+<PageTitle>Catalog</PageTitle>
 
 <div class="banner">
     <h1>Каталог товаров</h1>
@@ -19,10 +16,14 @@
 
 <section class="product-section">
     <div class="product-grid">
-        <ul class="products-cards">
-            @if (productsDTO != null && productsDTO.Any())
-            {
-                foreach (var product in productsDTO)
+        @if (isLoading)
+        {
+            <div class="loading">Загрузка...</div>
+        }
+        else if (productsDTO != null && productsDTO.Any())
+        {
+            <ul class="products-cards">
+                @foreach (var product in productsDTO)
                 {
                     <li class="card" @onclick="() => OnProductClick(product)">
                         <img src="@product.Img" alt="@product.Name" />
@@ -32,29 +33,36 @@
                         </div>
                     </li>
                 }
-            }
-            else
-            {
+            </ul>
+        }
+        else
+        {
+            <ul class="products-cards">
                 <li class="no-products">Товары не найдены.</li>
-            }
-        </ul>
+            </ul>
+        }
     </div>
 </section>
 
 @code {
     private IEnumerable<ProductDTO> productsDTO;
+    private bool isLoading = true;
+    private string errorMessage;
 
     protected override async Task OnInitializedAsync()
     {
-        var products = await ProductRepository.GetAll();
-        productsDTO = products.Select(p => new ProductDTO
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Img = p.Img,
-                Description = p.Description,
-                Price = p.Price
-            }).ToList();
+        try
+        {
+            productsDTO = await ProductClientService.GetProductsAsync();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Произошла ошибка при загрузке товаров.";
+        }
+        finally
+        {
+            isLoading = false;
+        }
     }
 
     private void OnProductClick(ProductDTO product)

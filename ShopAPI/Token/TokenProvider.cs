@@ -15,7 +15,7 @@ namespace ShopAPI.Token
             _configuration = configuration;
         }
 
-        public string Create(UserDTO userDTO)
+        public string CreateToken(UserDTO userDTO)
         {
             string secretKey = _configuration["JWT:Secret"];
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));

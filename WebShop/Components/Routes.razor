@@ -1,7 +1,14 @@
-﻿@using WebShop.Components.Layout
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@using WebShop.Components.Layout
+<CascadingAuthenticationState>
 <Router AppAssembly="typeof(Program).Assembly">
     <Found Context="routeData">
-        <RouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)" />
+        <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)" >
+            <Authorizing>
+                pls wait
+            </Authorizing>
+        </AuthorizeRouteView>
         <FocusOnNavigate RouteData="routeData" Selector="h1" />
     </Found>
 </Router>
+</CascadingAuthenticationState>

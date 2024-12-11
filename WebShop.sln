@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{11E1838C-D5A5-4977-A107-8349F2059F48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopAPI", "ShopAPI\ShopAPI.csproj", "{8F608C7C-9AF3-42D9-848D-AE4917A2F391}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopAPI", "ShopAPI\ShopAPI.csproj", "{8F608C7C-9AF3-42D9-848D-AE4917A2F391}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

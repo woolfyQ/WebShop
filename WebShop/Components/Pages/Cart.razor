@@ -1,40 +1,31 @@
 ﻿@page "/Cart"
+@using WebShop.Services
+@using Core.DTO
+
+@inject ProductCartClientService productCartService
+
+@inject ProductClientService productClientService
+
+@inject ProductCartClientService CartService
+
+@inject HttpClient Http
+
+
 <PageTitle>Корзина</PageTitle>
 
-<h3>Ваша корзина</h3>
 
-@if (cartItems != null && cartItems.Any())
-{
-    <ul>
-        @foreach (var item in cartItems)
-        {
-            <li>@item.Name - @item.Quantity шт. - @item.Price руб.</li>
-        }
-    </ul>
-}
-else
-{
-    <p>Ваша корзина пуста.</p>
-}
+
+
+    <div class="text-center my-4">
+        <p>Ваша корзина пуста. Добавьте товары в корзину, чтобы продолжить.</p>
+        <a href="/Catalog" class="btn btn-outline-primary">Перейти в каталог</a>
+    </div>
+
 
 @code {
-    private List<CartItem> cartItems;
+  
 
-    protected override async Task OnInitializedAsync()
-    {
-        // Здесь можно вызвать метод для получения данных корзины
-        // Например, имитируем данные корзины для теста
-        cartItems = new List<CartItem>
-        {
-            new CartItem { Name = "Товар 1", Quantity = 2, Price = 100 },
-            new CartItem { Name = "Товар 2", Quantity = 1, Price = 200 }
-        };
-    }
 
-    public class CartItem
-    {
-        public string Name { get; set; }
-        public int Quantity { get; set; }
-        public decimal Price { get; set; }
-    }
+
+    
 }

@@ -11,34 +11,34 @@ namespace ShopAPI.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly AuthService _authService;
+
         private readonly UserService _userService;
         private readonly TokenProvider _tokenProvider;
 
-        public AuthController(UserService userservice, AuthService authservice, TokenProvider tokenProvider)
+        public AuthController(UserService userservice, TokenProvider tokenProvider)
         {
             _tokenProvider = tokenProvider;
-            _authService = authservice;
+            
             _userService = userservice;
         }
 
         [HttpPost("SignIn")]
         public async Task<IActionResult> SignIn([FromBody] LoginModel loginModel, CancellationToken cancellationToken)
         {
-            Console.WriteLine($"Invalid model: {ModelState}");
+           
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = await _userService.ValidateUser(loginModel.Email, loginModel.Password, cancellationToken);
+            var user = await _userService.GetByEmailAsync(loginModel.Email, cancellationToken);
             if (user == null)
             {
                 return Unauthorized(new { message = "Invalid password or Email" });
             }
 
-            var token = _tokenProvider.Create(new UserDTO { Email = user.Email, Id = user.Id }); // Ensure token is created with DTO info
-            return Ok(new { Token = token });
+            var token = _tokenProvider.CreateToken(new UserDTO { Email = user.Email, Id = user.Id }); // Ensure token is created with DTO info
+            return Ok(new { Success = true, Token = token });
         }
 
         [HttpPost("Register")]
@@ -49,15 +49,12 @@ namespace ShopAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            // Проверка, существует ли пользователь с таким email
+           
             var alreadyUser = await _userService.GetByEmailAsync(registerModel.Email, cancellationToken);
             if (alreadyUser != null)
             {
                 return BadRequest(new { message = "User with this email already exists" });
             }
-
-            // Хешируем пароль перед регистрацией
-            registerModel.Password = BCrypt.Net.BCrypt.HashPassword(registerModel.Password);
 
             var userDTO = new UserDTO
             {
@@ -65,12 +62,12 @@ namespace ShopAPI.Controllers
                 Password = registerModel.Password,
             };
 
-            // Создаем нового пользователя с переданным DTO
             var user = await _userService.Create(userDTO, cancellationToken);
 
-            var token = _tokenProvider.Create(userDTO);
 
-            return CreatedAtAction(nameof(Register), new { id = userDTO.Id }, new { Token = token });
+            var token = _tokenProvider.CreateToken(userDTO);
+
+            return CreatedAtAction(nameof(Register), new {Succes = true, id = userDTO.Id }, new { Token = token });
         }
     }
 }

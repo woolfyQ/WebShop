@@ -1,6 +1,4 @@
-﻿
-
-namespace Core.Entity
+﻿namespace Core.Entity
 {
     public class Product : IEntity
     {
@@ -15,6 +13,7 @@ namespace Core.Entity
         public string Specs { get; set; }
 
         public string Description { get; set; }
+        //public ICollection<ProductImage> ProductImages { get; set; }
 
 
 

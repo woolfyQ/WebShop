@@ -1,73 +1,102 @@
-﻿using Core;
+﻿using Core.DTO;
 using Core.Entity;
 using Infrastructure.Data;
+using Infrastructure.Intefaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Repository
+public class ProductRepository : IProductInterface<Product, ProductDTO>
 {
-    public class ProductRepository : IRepository<Product>
+    private readonly ApplicationDbContext _context;
+
+    public ProductRepository(ApplicationDbContext context)
     {
-        private readonly ApplicationDbContext _context;
+        _context = context;
+    }
 
-        public ProductRepository(ApplicationDbContext context)
+    public async Task<Product> Create(ProductDTO dto, CancellationToken cancellationToken)
+    {
+        // Преобразуем DTO в сущность
+        var product = new Product
         {
-            _context = context;
-        }
+            Id = dto.Id,  // Генерируем новый Id, если это необходимо
+            Name = dto.Name,
+            Price = dto.Price,
+            Img = dto.Img,
+            Specs = dto.Specs,
+            Description = dto.Description
+        };
 
-        public async Task Create(Product entity, CancellationToken cancellationToken)
-        {
-            if (entity == null) throw new ArgumentNullException(nameof(entity));
-            await _context.Products.AddAsync(entity, cancellationToken);
-            await _context.SaveChangesAsync(cancellationToken);
-        }
+        // Добавляем сущность в контекст
+        await _context.Products.AddAsync(product, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
 
-        public async Task Create(IEnumerable<Product> entities, CancellationToken cancellationToken)
-        {
-            if (entities == null || !entities.Any()) throw new ArgumentNullException(nameof(entities));
-            await _context.Products.AddRangeAsync(entities, cancellationToken);
-            await _context.SaveChangesAsync(cancellationToken);
-        }
+        // Возвращаем сущность
+        return product;
+    }
 
-        public async Task Update(Product entity, CancellationToken cancellationToken)
-        {
-            if (entity == null) throw new ArgumentNullException(nameof(entity));
-            _context.Products.Update(entity);
-            await _context.SaveChangesAsync(cancellationToken);
-        }
+    public async Task<Product> Update(ProductDTO dto, CancellationToken cancellationToken)
+    {
+        var product = await _context.Products
+            .FirstOrDefaultAsync(p => p.Id == dto.Id, cancellationToken);
 
-        public async Task Update(IEnumerable<Product> entities, CancellationToken cancellationToken)
+        if (product == null)
         {
-            if (entities == null || !entities.Any()) throw new ArgumentNullException(nameof(entities));
-            _context.Products.UpdateRange(entities);
-            await _context.SaveChangesAsync(cancellationToken);
-        }
-
-        public async Task Delete(Product entity, CancellationToken cancellationToken)
-        {
-            if (entity == null) throw new ArgumentNullException(nameof(entity));
-            _context.Products.Remove(entity);
-            await _context.SaveChangesAsync(cancellationToken);
+            throw new Exception($"Product with id {dto.Id} not found");
         }
 
-        public async Task Delete(IEnumerable<Product> entities, CancellationToken cancellationToken)
+        // Обновляем данные сущности Product
+        product.Name = dto.Name;
+        product.Price = dto.Price;
+        product.Img = dto.Img;
+        product.Specs = dto.Specs;
+        product.Description = dto.Description;
+
+        // Обновляем сущность в контексте
+        _context.Products.Update(product);
+        await _context.SaveChangesAsync(cancellationToken);
+
+        // Возвращаем сущность
+        return product;
+    }
+
+    public async Task<Product> Delete(Guid id, CancellationToken cancellationToken)
+    {
+        var product = await _context.Products
+            .FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
+
+        if (product == null)
         {
-            if (entities == null || !entities.Any()) throw new ArgumentNullException(nameof(entities));
-            _context.Products.RemoveRange(entities);
-            await _context.SaveChangesAsync(cancellationToken);
+            throw new Exception($"Product with id {id} not found");
         }
 
-        public async Task<Product> GetByIdAsync(Guid Id,CancellationToken cancellationToken)
+        // Удаляем сущность из контекста
+        _context.Products.Remove(product);
+        await _context.SaveChangesAsync(cancellationToken);
+
+        // Возвращаем сущность
+        return product;
+    }
+
+    public async Task<Product> GetByIdAsync(Guid id, CancellationToken cancellationToken)
+    {
+        var product = await _context.Products
+            .FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
+
+        if (product == null)
         {
-            return await _context.Products.FindAsync(Id,cancellationToken);
+            throw new Exception($"Product with id {id} not found");
         }
 
-        public Task<Product> GetByEmailAsync(string email, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
-        public async Task<IEnumerable<Product>> GetAll(CancellationToken cancellationToken = default)
-        {
-            return await _context.Products.ToListAsync(cancellationToken);
-        }
+        // Возвращаем сущность
+        return product;
+    }
+
+    public async Task<IEnumerable<Product>> GetAll(CancellationToken cancellationToken)
+    {
+        var products = await _context.Products
+            .ToListAsync(cancellationToken);
+
+        // Возвращаем коллекцию сущностей
+        return products;
     }
 }

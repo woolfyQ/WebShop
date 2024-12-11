@@ -17,7 +17,6 @@ namespace Core
         Task Delete(TEntity entity, CancellationToken cancellationToken);
         Task Delete(IEnumerable<TEntity> entities, CancellationToken cancellationToken);
         Task<IEnumerable<TEntity>> GetAll(CancellationToken cancellationToken);
-        Task<TEntity> GetByIdAsync(Guid Id, CancellationToken cancellationToken);
-        Task<TEntity> GetByEmailAsync(string email, CancellationToken cancellationToken);
+
     }
 }

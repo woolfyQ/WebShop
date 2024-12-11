@@ -741,19 +741,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC_Work\\.nuget\\packages\\": {}
+    "C:\\Users\\Volko\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Core\\Core.csproj",
-      "packagesPath": "C:\\Users\\PC_Work\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Core\\obj\\",
+      "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj",
+      "packagesPath": "C:\\Users\\Volko\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PC_Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Volko\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -761,7 +761,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -806,7 +805,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

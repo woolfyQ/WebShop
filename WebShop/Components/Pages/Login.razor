@@ -1,0 +1,67 @@
+﻿@page "/Login" 
+@using Microsoft.AspNetCore.Authentication.Cookies
+@using Microsoft.AspNetCore.Components.Authorization
+@using ShopAPI
+@using ShopAPI.Models
+@using ShopAPI.Service
+@using System.Text.Json
+@using System.Security.Claims
+
+@inherits LayoutComponentBase
+@inject IAuth AuthService
+@inject AuthenticationStateProvider AuthStateProvider
+
+@inject NavigationManager nav
+<!-- Модальное окно для Входа -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Вход</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <EditForm FormName="Login" Model="@loginModel" OnValidSubmit="HandleLogin">
+                    <DataAnnotationsValidator />
+
+                    <div class="mb-3">
+                        <label for="loginEmail" class="form-label">Email</label>
+                        <InputText id="loginEmail" class="form-control" @bind-Value="loginModel.Email" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label">Пароль</label>
+                        <InputText id="loginPassword" type="password" class="form-control" @bind-Value="loginModel.Password" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Войти</button>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code{
+
+    [SupplyParameterFromForm(FormName = "Login")]
+    public LoginModel loginModel { get; set; } = new();
+    private async Task HandleLogin()
+    {
+        Console.WriteLine("HandleLogin Called");
+        Console.WriteLine($"Вывод значений: Email: {loginModel.Email}, Password: {loginModel.Password}");
+        var responce = await AuthService.SignIn(loginModel);
+        Console.WriteLine($"Login Success: {responce.Success}");
+        if (responce.Success)
+        {
+            Console.WriteLine("Login successful, updating UI.");
+        }
+        var customAuthStateProvider = (CustomAuthStateProvider) AuthStateProvider;
+        customAuthStateProvider.UpdateAuthetication(responce.Token);
+        nav.NavigateTo("/");
+        StateHasChanged();
+
+  
+
+    }
+
+
+}

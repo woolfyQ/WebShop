@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\WebShop.csproj": {}
+    "C:\\Users\\Volko\\Desktop\\123\\WebShop\\WebShop\\WebShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC_Work\\Desktop\\WebShop\\Application\\Application.csproj": {
+    "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\PC_Work\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Application\\obj\\",
+        "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\Volko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PC_Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Volko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,18 +22,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\PC_Work\\Desktop\\WebShop\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Core\\Core.csproj"
+              "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj"
               },
-              "C:\\Users\\PC_Work\\Desktop\\WebShop\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -57,6 +56,10 @@
               "target": "Package",
               "version": "[0.1.0, )"
             },
+            "Blazored.SessionStorage": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[9.0.1, )"
@@ -78,21 +81,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\PC_Work\\Desktop\\WebShop\\Core\\Core.csproj": {
+    "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\PC_Work\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Core\\obj\\",
+        "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\Volko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PC_Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Volko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -100,7 +103,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -145,21 +147,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\PC_Work\\Desktop\\WebShop\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\PC_Work\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Volko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PC_Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Volko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -167,15 +169,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\PC_Work\\Desktop\\WebShop\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Core\\Core.csproj"
+              "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj"
               }
             }
           }
@@ -215,6 +216,14 @@
               "target": "Package",
               "version": "[9.0.0, )"
             },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.Extensions.FileProviders.Physical": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[9.0.1, )"
@@ -236,21 +245,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\PC_Work\\Desktop\\WebShop\\ShopAPI\\ShopAPI.csproj": {
+    "C:\\Users\\Volko\\Desktop\\123\\WebShop\\ShopAPI\\ShopAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\WebShop\\ShopAPI\\ShopAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\ShopAPI\\ShopAPI.csproj",
         "projectName": "ShopAPI",
-        "projectPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\ShopAPI\\ShopAPI.csproj",
-        "packagesPath": "C:\\Users\\PC_Work\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\ShopAPI\\obj\\",
+        "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\ShopAPI\\ShopAPI.csproj",
+        "packagesPath": "C:\\Users\\Volko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\ShopAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PC_Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Volko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -258,18 +267,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\PC_Work\\Desktop\\WebShop\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Application\\Application.csproj"
+              "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Application\\Application.csproj"
               },
-              "C:\\Users\\PC_Work\\Desktop\\WebShop\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Core\\Core.csproj"
+              "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj"
               }
             }
           }
@@ -289,6 +297,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -337,21 +349,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\WebShop.csproj": {
+    "C:\\Users\\Volko\\Desktop\\123\\WebShop\\WebShop\\WebShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\WebShop.csproj",
+        "projectUniqueName": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\WebShop\\WebShop.csproj",
         "projectName": "WebShop",
-        "projectPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\WebShop.csproj",
-        "packagesPath": "C:\\Users\\PC_Work\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\obj\\",
+        "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\WebShop\\WebShop.csproj",
+        "packagesPath": "C:\\Users\\Volko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\WebShop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PC_Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Volko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -359,15 +371,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\PC_Work\\Desktop\\WebShop\\ShopAPI\\ShopAPI.csproj": {
-                "projectPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\ShopAPI\\ShopAPI.csproj"
+              "C:\\Users\\Volko\\Desktop\\123\\WebShop\\ShopAPI\\ShopAPI.csproj": {
+                "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\ShopAPI\\ShopAPI.csproj"
               }
             }
           }
@@ -411,7 +422,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

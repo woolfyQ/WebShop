@@ -10,8 +10,6 @@ namespace ShopAPI.Controllers
     [Authorize]
     public class OrderController : ControllerBase
     {
-
-
         private readonly OrderService _orderService;
 
         public OrderController(OrderService orderService)
@@ -44,9 +42,9 @@ namespace ShopAPI.Controllers
         }
 
         [HttpDelete("Delete/{id}")]
-        public async Task<IActionResult> Delete(Guid id, [FromBody] OrderDTO orderDTO,CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete(Guid id, [FromBody] CancellationToken cancellationToken)
         {
-            var cart = await _orderService.Delete(id, orderDTO, cancellationToken);
+            var cart = await _orderService.Delete(id, cancellationToken);
             return Ok(cart);
         }
 

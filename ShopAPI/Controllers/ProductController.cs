@@ -4,7 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ShopAPI.Controllers
 {
-    [Route("Product")]
+    [ApiController]
+    [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
         private readonly ProductService _productService;
@@ -16,13 +17,13 @@ namespace ShopAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] ProductDTO productDTO)
+        public async Task<IActionResult> Create([FromBody] ProductDTO productDTO, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var product = await _productService.Create(productDTO);
+            var product = await _productService.Create(productDTO, cancellationToken);
 
             return Ok(product);
         }
@@ -38,8 +39,16 @@ namespace ShopAPI.Controllers
             return Ok(product);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAllProducts(CancellationToken cancellationToken)
+        {
+            var products = await _productService.GetAll(cancellationToken);
+            return Ok(products);
+        }
+
+
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(Guid id, [FromBody] ProductDTO productDTO,CancellationToken cancellationToken)
+        public async Task<IActionResult> Update([FromBody] ProductDTO productDTO,CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
             {
@@ -48,7 +57,7 @@ namespace ShopAPI.Controllers
 
             try
             {
-                var updatedProduct = await _productService.Update(id, productDTO,cancellationToken);
+                var updatedProduct = await _productService.Update(productDTO, cancellationToken);
                 return Ok(updatedProduct);
             }
             catch (Exception ex)

@@ -1,12 +1,15 @@
-﻿using Core.Entity;
-using Core;
+﻿using Core.DTO;
+using Core.Entity;
 using Infrastructure.Data;
+using Infrastructure.Intefaces;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Repository
 {
-
-    public class UserRepository : IRepository<User>
+    public class UserRepository : IUserInterface<User, UserDTO>
     {
         private readonly ApplicationDbContext _context;
 
@@ -15,75 +18,78 @@ namespace Infrastructure.Repository
             _context = context;
         }
 
-        public async Task Create(User entity, CancellationToken cancellationToken)
+        public async Task<User> Create(UserDTO dto, CancellationToken cancellationToken)
         {
-            var user = entity;
-            if (user == null)
+            var user = new User
             {
-                throw new Exception("User not found");
-            }
+                Id = Guid.NewGuid(),
+                Name = dto.Name,
+                Email = dto.Email,
+                Password = dto.Password 
+            };
+
             await _context.Users.AddAsync(user, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
+            return user;
         }
 
-        public async Task Create(IEnumerable<User> entity, CancellationToken cancellationToken)
+        public async Task<User> Update(Guid id, UserDTO dto, CancellationToken cancellationToken)
         {
-            var users = entity.OfType<User>().ToList();
-            await _context.Users.AddRangeAsync(users, cancellationToken);
-            await _context.SaveChangesAsync(cancellationToken);
-
-        }
-
-        public async Task Update(User entity, CancellationToken cancellationToken)
-        {
-            var users = entity;
-            if (users == null)
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
+            if (user == null)
             {
-                throw new Exception("User not found");
+                throw new KeyNotFoundException($"User with ID {id} not found.");
             }
-            _context.Users.Update(users);
-            await _context.SaveChangesAsync(cancellationToken);
-        }
 
-        public async Task Update(IEnumerable<User> entities, CancellationToken cancellationToken)
-        {
-            var users = entities.OfType<User>().ToList();
-            await _context.Users.AddRangeAsync(users, cancellationToken);
-            await _context.SaveChangesAsync(cancellationToken);
-        }
+            user.Name = dto.Name;
+            user.Email = dto.Email;
 
-        public async Task Delete(User entity, CancellationToken cancellationToken)
-        {
-            var users = entity;
-            if (users == null)
+            if (!string.IsNullOrEmpty(dto.Password))
             {
-                throw new Exception("User not found");
+                user.Password = dto.Password; // Обновляем пароль без хэширования
             }
-            _context.Users.Remove(users);
+
+            _context.Users.Update(user);
             await _context.SaveChangesAsync(cancellationToken);
+            return user;
         }
 
-        public async Task Delete(IEnumerable<User> entity, CancellationToken cancellationToken)
+        public async Task<User> Delete(Guid id, CancellationToken cancellationToken)
         {
-            var users = entity.OfType<User>().ToList();
-            _context.Users.RemoveRange(users);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
+            if (user == null)
+            {
+                throw new KeyNotFoundException($"User with ID {id} not found.");
+            }
+
+            _context.Users.Remove(user);
             await _context.SaveChangesAsync(cancellationToken);
+            return user;
         }
 
-        public async Task<User> GetByIdAsync(Guid Id,CancellationToken cancellationToken)
+        public async Task<User> GetByIdAsync(Guid id, CancellationToken cancellationToken)
         {
-            return await _context.Users.FindAsync(Id,cancellationToken);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
+            if (user == null)
+            {
+                throw new KeyNotFoundException($"User with ID {id} not found.");
+            }
+            return user;
         }
 
-        public async Task<User> GetByEmailAsync(string email,CancellationToken cancellationToken)
+        public async Task<User> GetByEmailAsync(string email, CancellationToken cancellationToken)
         {
-            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email, cancellationToken);
+            Console.WriteLine($"[GetByEmailAsync] Searching for email: {email}");
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email, cancellationToken);
+            Console.WriteLine(user == null
+                ? $"[GetByEmailAsync] User not found for email: {email}"
+                : $"[GetByEmailAsync] Found user: {user.Email}, Id: {user.Id}");
+            return user;
         }
 
-        public Task<IEnumerable<User>> GetAll(CancellationToken cancellationToken = default)
+        public Task<User?> ValidateUser(string email, string password, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
     }
-
 }

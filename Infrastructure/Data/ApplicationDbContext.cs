@@ -10,13 +10,11 @@ namespace Infrastructure.Data
 
         }
         public DbSet<User> Users { get; set; }
-        public DbSet<Category> Categories { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCart> ProductInCarts { get; set; }
         public DbSet<ProductStorage> ProductStorages { get; set; }
         public DbSet<Storage> Storages { get; set; }
-        public DbSet<Rating> Ratings { get; set; }
         public DbSet<Order> Orders { get; set; }
 
 

@@ -1,11 +1,13 @@
-﻿using Core;
-using Core.Entity;
+﻿using Core.Entity;
+using Core.DTO;
+using Infrastructure.Intefaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace Infrastructure.Repository
 {
-    public class CartRepository : IRepository<Cart>
+    public class CartRepository : ICartInterface<Cart, CartDTO>
     {
         private readonly ApplicationDbContext _context;
 
@@ -14,54 +16,84 @@ namespace Infrastructure.Repository
             _context = context;
         }
 
-        public async Task<Cart> GetByIdAsync(Guid id, CancellationToken cancellationToken)
+    
+        public async Task<Cart> CreateCart(CartDTO cartDTO)
         {
-            return await _context.Carts
-                .Include(c => c.Products) 
-                .FirstOrDefaultAsync(c => c.Id == id, cancellationToken);
+            // Преобразуем DTO в сущность Cart
+            var cart = new Cart
+            {
+                Id = cartDTO.Id,  // Генерация нового Id
+                User = cartDTO.User,  // Присваиваем User из DTO
+                TotalPrice = cartDTO.TotalPrice,  // Присваиваем TotalPrice
+                Products = cartDTO.Products?.Select(p => new ProductCart
+                {
+                    Product = p.Product,  // Связываем с продуктом
+                    Amount = p.Amount     // Присваиваем количество
+                }).ToList()
+            };
+
+            // Добавляем сущность Cart в контекст
+            await _context.Set<Cart>().AddAsync(cart);
+            await _context.SaveChangesAsync();
+
+            // Возвращаем сущность Cart после сохранения
+            return cart;
         }
 
-        public async Task Create(Cart entity, CancellationToken cancellationToken)
+        // Получение Cart по ID с возвращением сущности
+        public async Task<Cart> GetByIdAsync(Guid id)
         {
-            await _context.Carts.AddAsync(entity, cancellationToken);
-            await _context.SaveChangesAsync(cancellationToken);
+            var cart = await _context.Set<Cart>()
+                .Include(c => c.Products)  // Подгружаем связанные продукты
+                .ThenInclude(pc => pc.Product)  // Подгружаем сами продукты
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            return cart;  // Возвращаем сущность Cart
         }
 
-        public async Task Update(Cart entity, CancellationToken cancellationToken)
+        // Обновление Cart
+        public async Task<Cart> UpdateCart(CartDTO cartDTO)
         {
-            _context.Carts.Update(entity);
-            await _context.SaveChangesAsync(cancellationToken);
+            var existingCart = await _context.Set<Cart>().FindAsync(cartDTO.Id);
+            if (existingCart == null)
+            {
+                throw new Exception($"Cart with id {cartDTO.Id} not found");
+            }
+
+            // Обновляем поля сущности Cart
+            existingCart.User = cartDTO.User;
+            existingCart.TotalPrice = cartDTO.TotalPrice;
+
+            // Обновляем связанные продукты
+            existingCart.Products = cartDTO.Products?.Select(p => new ProductCart
+            {
+                Product = p.Product,  // Обновляем продукт
+                Amount = p.Amount     // Обновляем количество
+            }).ToList();
+
+            // Обновляем сущность в контексте
+            _context.Set<Cart>().Update(existingCart);
+            await _context.SaveChangesAsync();
+
+            // Возвращаем обновленную сущность Cart
+            return existingCart;
         }
 
-        public async Task Delete(Cart entity, CancellationToken cancellationToken)
+        // Удаление Cart
+        public async Task<Cart> DeleteCart(CartDTO cartDTO)
         {
-            _context.Carts.Remove(entity);
-            await _context.SaveChangesAsync(cancellationToken);
-        }
+            var existingCart = await _context.Set<Cart>().FindAsync(cartDTO.Id);
+            if (existingCart == null)
+            {
+                throw new Exception($"Cart with id {cartDTO.Id} not found");
+            }
 
-        public Task Create(IEnumerable<Cart> entities, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
+            // Удаляем сущность Cart
+            _context.Set<Cart>().Remove(existingCart);
+            await _context.SaveChangesAsync();
 
-        public Task Update(IEnumerable<Cart> entities, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Delete(IEnumerable<Cart> entities, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<Cart>> GetAll(CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Cart> IRepository<Cart>.GetByEmailAsync(string email, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
+            // Возвращаем удаленную сущность Cart
+            return existingCart;
         }
     }
 }

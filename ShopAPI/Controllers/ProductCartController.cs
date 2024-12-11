@@ -1,53 +1,55 @@
-﻿using Application.Intefaces;
-using Core.DTO;
+﻿using Core.DTO;
 using Core.Entity;
 using Microsoft.AspNetCore.Mvc;
+using Infrastructure.Intefaces;
+using Application.Services;
+using System.Text.Json;
+using System.Security.Claims;
+using ShopAPI.Token;
 
 namespace ShopAPI.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
-    public class CartController : ControllerBase
+    [ApiController]
+    public class ProductCartController : ControllerBase
     {
-        private readonly ICartInterface<Cart, CartDTO> _cartService;
-        private readonly ILogger<CartController> _logger;
-        public CartController(ICartInterface<Cart, CartDTO> cartService, ILogger<CartController> logger)
+        private readonly ProductCartService _productCartService;
+       
+        public ProductCartController(ProductCartService productCartService)
         {
-            _cartService = cartService;
-            _logger = logger;
+            _productCartService = productCartService;
+           
         }
 
-        [HttpPost("Add")]
-        public async Task<IActionResult> AddItemToCart([FromBody] AddToCartDTO addToCartDTO)
+        [HttpPost("AddItemInCart")]
+        public async Task<IActionResult> AddItemToCart(Guid cartId, [FromBody] ProductCartDTO productCartDTO)
         {
-            try
-            {
-                Guid cartId = GetCartIdFromCookies();
-                _logger.LogInformation($"Добавление товара: CartId={cartId}, ProductId={addToCartDTO.ProductId}, Quantity={addToCartDTO.Quantity}");
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-                var updatedCart = await _cartService.AddItemToCart(cartId, addToCartDTO.ProductId, addToCartDTO.ProductPrice, addToCartDTO.Quantity);
-
-                return Ok(updatedCart);
-            }
-            catch (Exception ex)
+            if (productCartDTO == null)
             {
-                _logger.LogError(ex, "Ошибка при добавлении товара в корзину");
-                return BadRequest(ex.Message);
+                return BadRequest("Invalid product data.");
             }
+          
+   
+            var cart = await _productCartService.AddItemToCart(cartId, productCartDTO);
+            return Ok(cart); 
         }
 
-        private Guid GetCartIdFromCookies()
+       
+        [HttpPut("{cartId}/update/{productId}")]
+        public async Task<IActionResult> UpdateItemQuantity(Guid cartId, Guid productId, int amount)
         {
-            string cartIdFromCookie = Request.Cookies["cartId"];
+            var cart = await _productCartService.UpdateItemQuantity(cartId, productId, amount);
+            return Ok(cart); 
+        }
 
-            if (string.IsNullOrEmpty(cartIdFromCookie) || !Guid.TryParse(cartIdFromCookie, out Guid cartId))
-            {
-                // Если cartId нет или он некорректен, генерируем новый
-                cartId = Guid.NewGuid();
-                Response.Cookies.Append("cartId", cartId.ToString(), new CookieOptions { Expires = DateTime.Now.AddDays(30) });
-            }
-
-            return cartId;
+       
+        [HttpDelete("{cartId}/remove/{productId}")]
+        public async Task<IActionResult> RemoveItemFromCart(Guid cartId, Guid productId)
+        {
+            var cart = await _productCartService.RemoveItemFromCart(cartId, productId);
+            return Ok(cart); 
         }
     }
 }

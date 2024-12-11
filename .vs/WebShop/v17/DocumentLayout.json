@@ -1,38 +1,58 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\PC_Work\\Desktop\\WebShop\\",
+  "WorkspaceRootPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|c:\\users\\pc_work\\desktop\\webshop\\webshop\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|solutionrelative:webshop\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Migrations\\20241211110925_editProduct1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Infrastructure\\Migrations\\20241211110925_editProduct1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|c:\\users\\pc_work\\desktop\\webshop\\shopapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|solutionrelative:shopapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9ED42E49-24D3-4D29-A51A-10A870A022C7}|Infrastructure\\Infrastructure.csproj|c:\\users\\volko\\desktop\\123\\webshop\\infrastructure\\migrations\\20241211110754_editproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9ED42E49-24D3-4D29-A51A-10A870A022C7}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\migrations\\20241211110754_editproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|c:\\users\\pc_work\\desktop\\webshop\\shopapi\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|solutionrelative:shopapi\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9ED42E49-24D3-4D29-A51A-10A870A022C7}|Infrastructure\\Infrastructure.csproj|c:\\users\\volko\\desktop\\123\\webshop\\infrastructure\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9ED42E49-24D3-4D29-A51A-10A870A022C7}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11E1838C-D5A5-4977-A107-8349F2059F48}|Application\\Application.csproj|c:\\users\\pc_work\\desktop\\webshop\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|c:\\users\\volko\\desktop\\123\\webshop\\webshop\\components\\pages\\productcard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|solutionrelative:webshop\\components\\pages\\productcard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11E1838C-D5A5-4977-A107-8349F2059F48}|Application\\Application.csproj|c:\\users\\volko\\desktop\\123\\webshop\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{11E1838C-D5A5-4977-A107-8349F2059F48}|Application\\Application.csproj|solutionrelative:application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|c:\\users\\pc_work\\desktop\\webshop\\shopapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|solutionrelative:shopapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{9ED42E49-24D3-4D29-A51A-10A870A022C7}|Infrastructure\\Infrastructure.csproj|c:\\users\\volko\\desktop\\123\\webshop\\infrastructure\\intefaces\\userinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9ED42E49-24D3-4D29-A51A-10A870A022C7}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\intefaces\\userinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11E1838C-D5A5-4977-A107-8349F2059F48}|Application\\Application.csproj|c:\\users\\pc_work\\desktop\\webshop\\application\\intefaces\\userinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11E1838C-D5A5-4977-A107-8349F2059F48}|Application\\Application.csproj|solutionrelative:application\\intefaces\\userinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9ED42E49-24D3-4D29-A51A-10A870A022C7}|Infrastructure\\Infrastructure.csproj|c:\\users\\volko\\desktop\\123\\webshop\\infrastructure\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9ED42E49-24D3-4D29-A51A-10A870A022C7}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|c:\\users\\pc_work\\desktop\\webshop\\webshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|solutionrelative:webshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|c:\\users\\volko\\desktop\\123\\webshop\\webshop\\components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|solutionrelative:webshop\\components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|c:\\users\\pc_work\\desktop\\webshop\\shopapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|solutionrelative:shopapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|c:\\users\\volko\\desktop\\123\\webshop\\webshop\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|solutionrelative:webshop\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|c:\\users\\volko\\desktop\\123\\webshop\\webshop\\components\\layout\\header.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|solutionrelative:webshop\\components\\layout\\header.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|c:\\users\\volko\\desktop\\123\\webshop\\shopapi\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|solutionrelative:shopapi\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|c:\\users\\volko\\desktop\\123\\webshop\\shopapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|solutionrelative:shopapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|c:\\users\\volko\\desktop\\123\\webshop\\webshop\\services\\productclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|solutionrelative:webshop\\services\\productclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,110 +62,176 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\WebShop\\ShopAPI\\Service\\AuthService.cs",
-              "RelativeDocumentMoniker": "ShopAPI\\Service\\AuthService.cs",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\WebShop\\ShopAPI\\Service\\AuthService.cs",
-              "RelativeToolTip": "ShopAPI\\Service\\AuthService.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "20241211110925_editProduct1.cs",
+              "DocumentMoniker": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Migrations\\20241211110925_editProduct1.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Migrations\\20241211110925_editProduct1.cs",
+              "ToolTip": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Migrations\\20241211110925_editProduct1.cs",
+              "RelativeToolTip": "Infrastructure\\Migrations\\20241211110925_editProduct1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T22:22:22.536Z",
+              "WhenOpened": "2024-12-11T11:09:25.467Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\WebShop\\ShopAPI\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "ShopAPI\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\WebShop\\ShopAPI\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "ShopAPI\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBsAAAA+AAAAAAAAAA==",
+              "Title": "20241211110754_editProduct.cs",
+              "DocumentMoniker": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Migrations\\20241211110754_editProduct.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Migrations\\20241211110754_editProduct.cs",
+              "ToolTip": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Migrations\\20241211110754_editProduct.cs",
+              "RelativeToolTip": "Infrastructure\\Migrations\\20241211110754_editProduct.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T20:51:26.491Z",
+              "WhenOpened": "2024-12-11T11:07:54.845Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainLayout.razor",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\Components\\Layout\\MainLayout.razor",
-              "RelativeDocumentMoniker": "WebShop\\Components\\Layout\\MainLayout.razor",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\Components\\Layout\\MainLayout.razor",
-              "RelativeToolTip": "WebShop\\Components\\Layout\\MainLayout.razor",
-              "ViewState": "AgIAACkAAAAAAAAAAAAkwDAAAABbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T22:03:34.596Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\WebShop\\ShopAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "ShopAPI\\appsettings.json",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\WebShop\\ShopAPI\\appsettings.json",
-              "RelativeToolTip": "ShopAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-04T20:55:17.767Z",
+              "DocumentIndex": 2,
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Data\\SeedData.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Data\\SeedData.cs",
+              "ToolTip": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Data\\SeedData.cs",
+              "RelativeToolTip": "Infrastructure\\Data\\SeedData.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAgwA4AAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T11:02:49.144Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Application\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Application\\Services\\UserService.cs",
-              "RelativeToolTip": "Application\\Services\\UserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Title": "ProductCard.razor",
+              "DocumentMoniker": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\WebShop\\Components\\Pages\\ProductCard.razor",
+              "RelativeDocumentMoniker": "WebShop\\Components\\Pages\\ProductCard.razor",
+              "ToolTip": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\WebShop\\Components\\Pages\\ProductCard.razor",
+              "RelativeToolTip": "WebShop\\Components\\Pages\\ProductCard.razor",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAEcAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-11T11:00:32.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Repository\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repository\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Repository\\UserRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repository\\UserRepository.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwFMAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T20:49:34.146Z",
+              "WhenOpened": "2024-12-11T10:17:04.021Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "UserInterface.cs",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Application\\Intefaces\\UserInterface.cs",
-              "RelativeDocumentMoniker": "Application\\Intefaces\\UserInterface.cs",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\WebShop\\Application\\Intefaces\\UserInterface.cs",
-              "RelativeToolTip": "Application\\Intefaces\\UserInterface.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABJAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Intefaces\\UserInterface.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Intefaces\\UserInterface.cs",
+              "ToolTip": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Intefaces\\UserInterface.cs",
+              "RelativeToolTip": "Infrastructure\\Intefaces\\UserInterface.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T20:51:10.307Z",
+              "WhenOpened": "2024-12-11T10:16:46.653Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\Program.cs",
-              "RelativeDocumentMoniker": "WebShop\\Program.cs",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\WebShop\\WebShop\\Program.cs",
-              "RelativeToolTip": "WebShop\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAVAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Application\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Application\\Services\\UserService.cs",
+              "RelativeToolTip": "Application\\Services\\UserService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB4AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T15:15:59.895Z",
+              "WhenOpened": "2024-12-11T10:16:14.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\WebShop\\Components\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "WebShop\\Components\\Pages\\Login.razor",
+              "ToolTip": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\WebShop\\Components\\Pages\\Login.razor",
+              "RelativeToolTip": "WebShop\\Components\\Pages\\Login.razor",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAADsAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-11T10:07:46.289Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\WebShop\\ShopAPI\\Program.cs",
-              "RelativeDocumentMoniker": "ShopAPI\\Program.cs",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\WebShop\\ShopAPI\\Program.cs",
-              "RelativeToolTip": "ShopAPI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAxAAAAAAAAAA==",
+              "Title": "Register.razor",
+              "DocumentMoniker": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\WebShop\\Components\\Pages\\Register.razor",
+              "RelativeDocumentMoniker": "WebShop\\Components\\Pages\\Register.razor",
+              "ToolTip": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\WebShop\\Components\\Pages\\Register.razor",
+              "RelativeToolTip": "WebShop\\Components\\Pages\\Register.razor",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAADwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-11T08:50:35.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Header.razor",
+              "DocumentMoniker": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\WebShop\\Components\\Layout\\Header.razor",
+              "RelativeDocumentMoniker": "WebShop\\Components\\Layout\\Header.razor",
+              "ToolTip": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\WebShop\\Components\\Layout\\Header.razor",
+              "RelativeToolTip": "WebShop\\Components\\Layout\\Header.razor",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACEAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-11T08:47:50.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\ShopAPI\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "ShopAPI\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\ShopAPI\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "ShopAPI\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAowEUAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T15:14:50.77Z"
+              "WhenOpened": "2024-12-11T08:43:04.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\ShopAPI\\Service\\AuthService.cs",
+              "RelativeDocumentMoniker": "ShopAPI\\Service\\AuthService.cs",
+              "ToolTip": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\ShopAPI\\Service\\AuthService.cs",
+              "RelativeToolTip": "ShopAPI\\Service\\AuthService.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAowB0AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T08:33:37.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ProductClientService.cs",
+              "DocumentMoniker": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\WebShop\\Services\\ProductClientService.cs",
+              "RelativeDocumentMoniker": "WebShop\\Services\\ProductClientService.cs",
+              "ToolTip": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\WebShop\\Services\\ProductClientService.cs",
+              "RelativeToolTip": "WebShop\\Services\\ProductClientService.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAwwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T08:33:26.61Z",
+              "EditorCaption": ""
             }
           ]
         }

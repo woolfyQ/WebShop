@@ -14,31 +14,49 @@ namespace ShopAPI.Service
 
         public async Task<RegisterResult> Register(RegisterModel registerModel)
         {
-            var result = await _httpClient.PostAsJsonAsync("/api/Auth/Register", registerModel);
-            var response = await result.Content.ReadFromJsonAsync<RegisterResult>();
-            return response!;
+            var responce = await _httpClient.PostAsJsonAsync("/api/Auth/Register", registerModel);
+
+            if (!responce.IsSuccessStatusCode)
+            {
+                var errorcontent = await responce.Content.ReadAsStringAsync();
+                Console.WriteLine("Error" + errorcontent);
+                return new RegisterResult{ Success = false, Error = "Server error"};
+            }
+
+
+
+
+            var result = await responce.Content.ReadFromJsonAsync<RegisterResult>();
+            Console.WriteLine("Register Done");
+            
+           
+            return result!;
+            
         }
 
         public async Task<LoginResult> SignIn(LoginModel loginModel)
         {
-            Console.WriteLine($"Email: {loginModel.Email}, Password: {loginModel.Password}");
+            Console.WriteLine($"[UI SignIn] Sending Email: {loginModel.Email}, Password: {loginModel.Password}");
 
             var response = await _httpClient.PostAsJsonAsync("/api/Auth/SignIn", loginModel);
+
             if (!response.IsSuccessStatusCode)
             {
                 var errorContent = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"Server error: {response.ReasonPhrase}, Details: {errorContent}");
+                Console.WriteLine($"[UI SignIn] Server error: {response.ReasonPhrase}, Details: {errorContent}");
                 return new LoginResult { Success = false, Error = "Server error: " + errorContent };
             }
 
             var responseContent = await response.Content.ReadFromJsonAsync<LoginResult>();
+            Console.WriteLine($"[UI SignIn] Parsed response: Success={responseContent?.Success}, Token={responseContent?.Token}");
+
             if (responseContent != null && responseContent.Success)
             {
                 return responseContent;
             }
             else
             {
-                return new LoginResult { Success = false, Error = "Неверные учетные данные" };
+                return new LoginResult { Success = false, Error = "Invalid response from server" };
             }
         }
     }

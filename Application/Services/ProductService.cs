@@ -1,20 +1,19 @@
-﻿using Application.Intefaces;
-using Core;
-using Core.DTO;
+﻿using Core.DTO;
 using Core.Entity;
+using Infrastructure.Intefaces;
 
 namespace Application.Services
 {
     public class ProductService : IProductInterface<Product, ProductDTO>
     {
+        private readonly IProductInterface<Product, ProductDTO> _productRepository;
 
-        private readonly IRepository<Product> _productRepository;
-
-        public ProductService(IRepository<Product> productRepository)
+        public ProductService(IProductInterface<Product, ProductDTO> productRepository)
         {
             _productRepository = productRepository;
         }
-        public async Task<Product> Create(ProductDTO productDTO)
+
+        public async Task<Product> Create(ProductDTO productDTO, CancellationToken cancellationToken)
         {
             var product = new Product
             {
@@ -26,54 +25,44 @@ namespace Application.Services
                 Specs = productDTO.Specs,
             };
 
-            await _productRepository.Create(product, CancellationToken.None);
+            await _productRepository.Create(productDTO, cancellationToken);
             return product;
-
         }
-        public async Task<Product> Update(Guid Id, ProductDTO productDTO,CancellationToken cancellationToken)
+
+        public async Task<Product> Update(ProductDTO productDTO, CancellationToken cancellationToken)
         {
-            var product = await _productRepository.GetByIdAsync(Id, cancellationToken);
-            {
-                if (product == null)
-                {
-                    throw new Exception("Product not found");
-                }
+            var product = await _productRepository.GetByIdAsync(productDTO.Id, cancellationToken)
+                          ?? throw new KeyNotFoundException("Product not found");
 
-                product.Description = productDTO.Description;
-                product.Name = productDTO.Name;
-                product.Img = productDTO.Img;
-                product.Price = productDTO.Price;
-                product.Specs = productDTO.Specs;
+            product.Description = productDTO.Description;
+            product.Name = productDTO.Name;
+            product.Img = productDTO.Img;
+            product.Price = productDTO.Price;
+            product.Specs = productDTO.Specs;
 
-            }
-            await _productRepository.Update(product, CancellationToken.None);
+            await _productRepository.Update(productDTO, cancellationToken);
             return product;
         }
-        public async Task<Product> Delete(Guid Id,CancellationToken cancellationToken)
+
+        public async Task<Product> Delete(Guid id, CancellationToken cancellationToken)
         {
+            var product = await _productRepository.GetByIdAsync(id, cancellationToken)
+                          ?? throw new KeyNotFoundException("Product not found");
 
-            var product = await _productRepository.GetByIdAsync(Id, cancellationToken);
-
-            if (product == null)
-            {
-                throw new Exception("Product nof found");
-            }
-
-            await _productRepository.Delete(product, CancellationToken.None);
+            await _productRepository.Delete(id, cancellationToken);
             return product;
         }
 
-        public async Task<Product> GetByIdAsync(Guid Id,CancellationToken cancellationToken)
+        public async Task<Product> GetByIdAsync(Guid id, CancellationToken cancellationToken)
         {
-            var product = await _productRepository.GetByIdAsync(Id, cancellationToken);
-            if (product == null)
-            {
-                throw new Exception("Product nof found");
-            }
-            return product;
-
-
+            return await _productRepository.GetByIdAsync(id, cancellationToken)
+                   ?? throw new KeyNotFoundException("Product not found");
         }
-        
+
+        public async Task<IEnumerable<Product>> GetAll(CancellationToken cancellationToken)
+        {
+            var products = await _productRepository.GetAll(cancellationToken);
+            return products.Any() ? products : throw new KeyNotFoundException("No products found");
+        }
     }
 }

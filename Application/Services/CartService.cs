@@ -1,19 +1,20 @@
-﻿using Application.Intefaces;
-using Core;
-using Core.DTO;
+﻿using Core.DTO;
 using Core.Entity;
+using Infrastructure.Intefaces;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http;
 
 namespace Application.Services
 {
     public class CartService : ICartInterface<Cart, CartDTO>
     {
-        private readonly IRepository<Cart> _cartRepository;
-        private readonly IRepository<Product> _productRepository;
+        private readonly ICartInterface<Cart, CartDTO> _cartRepository;
 
-        public CartService(IRepository<Cart> cartRepository, IRepository<Product> productRepository)
+
+        public CartService(ICartInterface<Cart, CartDTO> cartRepository)
         {
             _cartRepository = cartRepository;
-            _productRepository = productRepository;
+            
         }
 
         public async Task<Cart> CreateCart(CartDTO cartDTO)
@@ -25,82 +26,39 @@ namespace Application.Services
                 TotalPrice = cartDTO.TotalPrice,
                 Products = cartDTO.Products ?? new List<ProductCart>()
             };
-            await _cartRepository.Create(cart, CancellationToken.None);
-            return cart;
+
+            var createdCart = await _cartRepository.CreateCart(cart);
+
+            return createdCart;
         }
-
-        public async Task<Cart> GetCartByUserId(Guid userId, CartDTO cartDTO)
+        public async Task<Cart> GetByIdAsync(Guid Id)
         {
-            var carts = await _cartRepository.GetAll(CancellationToken.None);
-            var cart = carts.FirstOrDefault(c => c.User.Id == userId);
-
+            var cart = await _cartRepository.GetByIdAsync(Id);
             if (cart == null)
             {
-                throw new KeyNotFoundException("Cart not Found for user");
+                throw new Exception($"Cart with id {Id} not found");
             }
             return cart;
-        }
 
-        public async Task<Cart> AddItemToCart(Guid cartId, Guid productId, decimal price, int quantity = 1, CancellationToken cancellationToken = default)
+        }
+      
+        public async Task<Cart> UpdateCart(CartDTO cartDTO)
         {
-            var cart = await _cartRepository.GetByIdAsync(cartId, cancellationToken);
-            if (cart == null)
-            {
-                cart = new Cart
-                {
-                    Id = cartId,
-                    TotalPrice = 0,
-                    Products = new List<ProductCart>()
-                };
-                await _cartRepository.Create(cart, cancellationToken);
-            }
+            var cart = await _cartRepository.GetByIdAsync(cartDTO.Id);
 
-            var product = await _productRepository.GetByIdAsync(productId, cancellationToken);
-            if (product == null)
-            {
-                throw new KeyNotFoundException("Product not found");
-            }
-            var existingProductCart = cart.Products.FirstOrDefault(pc => pc.Product.Id == productId);
-            if (existingProductCart != null)
-            {
-                existingProductCart.Amount += quantity;
-            }
-            else
-            {
-                var productCart = new ProductCart
-                {
-                    Id = Guid.NewGuid(),
-                    Product = product,
-                    Amount = quantity
-                };
+            cart.User = cartDTO.User;
+            cart.TotalPrice = cartDTO.TotalPrice;
+            cart.Products = cartDTO.Products;
 
-                cart.Products.Add(productCart);
-            }
-            cart.TotalPrice += price * quantity;
-            await _cartRepository.Update(cart, cancellationToken);
-
+            await _cartRepository.UpdateCart(cart);
             return cart;
         }
-
-        public async Task<Cart> DeleteCart(Guid cartId)
+        public async Task<Cart> DeleteCart(CartDTO cartDTO)
         {
-            var cart = await _cartRepository.GetByIdAsync(cartId, CancellationToken.None);
-            if (cart == null)
-            {
-                throw new KeyNotFoundException("Cart not found");
-            }
-            await _cartRepository.Delete(cart, CancellationToken.None);
+            var cart = await _cartRepository.GetByIdAsync(cartDTO.Id);
+            await _cartRepository.DeleteCart(cart);
             return cart;
         }
 
-        public async Task<Cart> GetByIdAsync(Guid id)
-        {
-            var cart = await _cartRepository.GetByIdAsync(id, CancellationToken.None);
-            if (cart == null)
-            {
-                throw new KeyNotFoundException("Cart not found");
-            }
-            return cart;
-        }
     }
 }

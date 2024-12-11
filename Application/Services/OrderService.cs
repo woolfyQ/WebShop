@@ -1,15 +1,18 @@
-﻿using Application.Intefaces;
-using Core;
-using Core.DTO;
+﻿using Core.DTO;
 using Core.Entity;
+using Infrastructure.Intefaces;
+using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Application.Services
 {
     public class OrderService : IOrderInterface<Order, OrderDTO>
     {
-        private readonly IRepository<Order> _orderRepository;
+        private readonly IOrderInterface<Order, OrderDTO> _orderRepository;
 
-        public OrderService(IRepository<Order> orderRepository)
+        public OrderService(IOrderInterface<Order, OrderDTO> orderRepository)
         {
             _orderRepository = orderRepository;
         }
@@ -22,15 +25,18 @@ namespace Application.Services
                 Cart = orderDTO.Cart,
                 User = orderDTO.User,
                 DateTime = DateTime.Now,
-                Products = orderDTO.Products,
+                Products = orderDTO.Products ?? new List<ProductCart>(), // Обрабатываем ситуацию, если продукты не указаны
                 TotalPrice = orderDTO.TotalPrice
             };
-            await _orderRepository.Create(order, CancellationToken.None);
+
+            // Создание заказа в репозитории
+            await _orderRepository.Create(orderDTO);
             return order;
         }
+
         public async Task<Order> AddProduct(OrderDTO orderDTO, CancellationToken cancellationToken)
         {
-            var order = await _orderRepository.GetByIdAsync(orderDTO.Id,cancellationToken);
+            var order = await _orderRepository.GetByIdAsync(orderDTO.Id, cancellationToken);
             if (order == null)
             {
                 throw new Exception("Order not found");
@@ -53,29 +59,53 @@ namespace Application.Services
                     order.TotalPrice += item.Product.Price * item.Amount;
                 }
 
-                await _orderRepository.Update(order, CancellationToken.None);
+                // Обновляем заказ после добавления продуктов
+                await _orderRepository.Update(orderDTO, cancellationToken);
             }
             return order;
         }
-        public async Task<Order> Delete(Guid Id, OrderDTO orderDTO,CancellationToken cancellationToken)
+
+        public async Task<Order> Delete(Guid id, CancellationToken cancellationToken)
+        {
+            var order = await _orderRepository.GetByIdAsync(id, cancellationToken);
+            if (order == null)
+            {
+                throw new Exception("Order not found");
+            }
+
+            // Удаляем заказ из репозитория
+            await _orderRepository.Delete(id, cancellationToken);
+            return order;
+        }
+
+        public async Task<Order> GetByIdAsync(Guid id, CancellationToken cancellationToken)
+        {
+            var order = await _orderRepository.GetByIdAsync(id, cancellationToken);
+            if (order == null)
+            {
+                throw new Exception("Order not found");
+            }
+            return order;
+        }
+
+        public async Task<Order> Update(OrderDTO orderDTO, CancellationToken cancellationToken)
         {
             var order = await _orderRepository.GetByIdAsync(orderDTO.Id, cancellationToken);
             if (order == null)
             {
-                throw new Exception("order not found");
+                throw new Exception("Order not found");
             }
-            await _orderRepository.Delete(order, CancellationToken.None);
+
+            // Обновляем данные заказа
+            order.Cart = orderDTO.Cart;
+            order.User = orderDTO.User;
+            order.Products = orderDTO.Products ?? new List<ProductCart>(); 
+            order.TotalPrice = orderDTO.TotalPrice;
+
+            // Обновляем заказ в репозитории
+            await _orderRepository.Update(orderDTO, cancellationToken);
+
             return order;
-
-
         }
-        public async Task<Order> GetByIdAsync(Guid Id,CancellationToken cancellationToken)
-        {
-            var order = await _orderRepository.GetByIdAsync(Id, cancellationToken);
-            return order;
-
-
-        }
-
     }
 }

@@ -1,43 +1,37 @@
-﻿@using Application.Services
-@using Core
-@using Core.DTO
-@using Core.Entity
-@using Infrastructure.Repository
-
-@page "/ProductCard/{ProductId:guid}"
+﻿@page "/ProductCard/{ProductId:guid}"
 @rendermode InteractiveServer
 
-@inject ProductRepository productRepository
-
-@inject CartService CartService
-
+@using Application.Services
+@using Core.DTO
+@using WebShop.Services
+@inject ProductClientService productClientService
+@inject ProductCartClientService CartService
 @inject HttpClient Http
-
 @inject IJSRuntime JSRuntime
 
 <div class="product-detail">
     @if (productDTO != null)
     {
         <div class="product-main">
-            <!-- Левый блок с изображением и галереей -->
+            
             <div class="image-section">
                 <div class="main-image">
                     <img src="@productDTO.Img" alt="@productDTO.Name" />
                 </div>
                 <div class="product-gallery">
-                    <div class="gallery-thumbnails">
-                        <img src="/pics/Kolpak1.jpg" alt="Image 1" />
-                        <img src="/pics/Kolpak1.jpg" alt="Image 2" />
-                        <img src="/pics/Kolpak1.jpg" alt="Image 3" />
-                    </div>
+                  @*   <div class="gallery-thumbnails">
+                        <img src="" alt="Image 1" />
+                        <img src="" alt="Image 2" />
+                        <img src="" alt="Image 3" />
+                    </div> *@
                 </div>
             </div>
 
-            <!-- Правый блок с описанием и кнопками -->
+        
             <div class="product-content">
                 <h1 class="product-title">@productDTO.Name</h1>
                 <p class="product-price">@productDTO.Price руб.</p>
-                <button class="add-to-cart" @onclick="() => AddProduct(productDTO.Id)">Добавить в корзину</button>
+                <button class="add-to-cart" @onclick="AddToCart">Добавить в корзину</button>
                 <p class="product-description">@productDTO.Description</p>
                 <ul class="product-specs">
                     @foreach (var spec in productDTO.Specs.Split(';'))
@@ -59,68 +53,44 @@
 @code {
     [Parameter]
     public Guid ProductId { get; set; }
-    public Guid cartId;
+
     private ProductDTO productDTO;
+    private ProductCartDTO productCartModel;
+    private string? ErrorMessage;
+    private string? SuccessMessage;
+    private string? token;
+    public int Amount;
 
     protected override async Task OnInitializedAsync()
     {
-        var product = await productRepository.GetByIdAsync(ProductId, CancellationToken.None);
-        if (product != null)
-        {
-            productDTO = new ProductDTO
-                {
-                    Id = product.Id,
-                    Name = product.Name,
-                    Img = product.Img,
-                    Description = product.Description,
-                    Price = product.Price,
-                    Specs = product.Specs
-                };
-        }
+        productDTO = await productClientService.GetByIdAsync(ProductId);
+        
+    
     }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    private async Task AddToCart()
     {
-        if (firstRender)
+       
+        if (string.IsNullOrEmpty(token))
         {
-            // Выполняем логику JSInterop только после рендеринга
-            var cartIdFromCookie = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "cartId");
-
-            if (string.IsNullOrEmpty(cartIdFromCookie) || !Guid.TryParse(cartIdFromCookie, out cartId))
-            {
-                cartId = Guid.NewGuid(); // Новый идентификатор корзины
-                await JSRuntime.InvokeVoidAsync("localStorage.setItem", "cartId", cartId.ToString());
-            }
-
-            StateHasChanged(); // Обновляем состояние компонента
-        }
-    }
-
-    private async Task AddProduct(Guid productId)
-    {
-        if (productId == Guid.Empty || productDTO.Price <= 0)
-        {
-            Console.WriteLine("Некорректные данные для добавления товара в корзину");
+            ErrorMessage = "Токен не найден!";
             return;
         }
 
-        var addToCartDTO = new AddToCartDTO
+        var productCartModel = new ProductCartDTO
             {
-                ProductId = productId,
-                ProductPrice = productDTO.Price,
-                Quantity = 1
+                ProductId = ProductId,
+                Amount = Amount
             };
-
-        var response = await Http.PostAsJsonAsync("api/Cart/Add", addToCartDTO);
+        // Http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+        var response = await Http.PostAsJsonAsync("api/productcart/AddItemInCart", productCartModel);
 
         if (response.IsSuccessStatusCode)
         {
-            Console.WriteLine("Товар добавлен в корзину");
+            SuccessMessage = "Товар успешно добавлен в корзину!";
         }
         else
         {
-            var error = await response.Content.ReadAsStringAsync();
-            Console.WriteLine($"Ошибка: {error}");
+            ErrorMessage = "Ошибка при добавлении товара в корзину.";
         }
     }
 }
