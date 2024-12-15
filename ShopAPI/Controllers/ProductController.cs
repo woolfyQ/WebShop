@@ -16,7 +16,7 @@ namespace ShopAPI.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] ProductDTO productDTO, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
@@ -47,26 +47,16 @@ namespace ShopAPI.Controllers
         }
 
 
-        [HttpPut("{id}")]
+        [HttpPut("Update")]
         public async Task<IActionResult> Update([FromBody] ProductDTO productDTO,CancellationToken cancellationToken)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        { 
+           var updatedProduct = await _productService.Update(productDTO, cancellationToken);
 
-            try
-            {
-                var updatedProduct = await _productService.Update(productDTO, cancellationToken);
-                return Ok(updatedProduct);
-            }
-            catch (Exception ex)
-            {
-                return NotFound(ex.Message);
-            }
+           return Ok(updatedProduct);
+   
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteBy/{id}")]
         public async Task<IActionResult> Delete(Guid id, CancellationToken cancellationToken)
         {
             try

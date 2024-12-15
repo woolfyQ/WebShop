@@ -9,7 +9,7 @@ namespace Core.DTO
         public Cart Cart { get; set; }
         public decimal TotalPrice { get; set; }
         public DateTime DateTime { get; set; }
-        public virtual ICollection<ProductCart> Products { get; set; }
+        public virtual ICollection<ItemCart> Products { get; set; }
 
 
 

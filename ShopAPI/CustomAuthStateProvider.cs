@@ -1,76 +1,140 @@
 ﻿using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.WebUtilities;
+using ShopAPI.Service;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Text.Json;
 
 namespace ShopAPI
 {
+    public static class Constans
+    {
+        public static string JWTToken { get; set; } = "";
+    }
+
+    public record class CustomUserClaims(string Email);
+
     public class CustomAuthStateProvider : AuthenticationStateProvider
     {
+        private readonly IAuth _authService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public CustomAuthStateProvider(IAuth authService, IHttpContextAccessor httpContextAccessor)
+        {
+            _authService = authService;
+            _httpContextAccessor = httpContextAccessor;
+        }
+
         private readonly ClaimsPrincipal anonymous = new(new ClaimsIdentity());
 
-        public override async Task<AuthenticationState> GetAuthenticationStateAsync()
+        public override Task<AuthenticationState> GetAuthenticationStateAsync()
         {
-            try
+            var token = _httpContextAccessor.HttpContext.Session.GetString("authToken");
+
+            var identity = new ClaimsIdentity();
+            if (!string.IsNullOrEmpty(token))
             {
-                if (string.IsNullOrEmpty(Constans.JWTToken))
-
-                { return await Task.FromResult(new AuthenticationState(anonymous)); }
-
-                var getUserClaims = DecryptToken(Constans.JWTToken);
-                if (getUserClaims != null)
-                {
-                    return await Task.FromResult(new AuthenticationState(anonymous));
-                }
-                var claimsPrincipal = SetClaimPrincipal(getUserClaims);
-                return await Task.FromResult(new AuthenticationState(claimsPrincipal));
+                identity = new ClaimsIdentity(ParseClaimsFromJwt(token), "jwt");
             }
-            catch { return await Task.FromResult(new AuthenticationState(anonymous)); }
+
+            var user = new ClaimsPrincipal(identity);
+            return Task.FromResult(new AuthenticationState(user));
         }
 
-
-
-        public async void UpdateAuthetication(string JwtToken)
+        private IEnumerable<Claim> ParseClaimsFromJwt(string jwt)
         {
-            var claims = new ClaimsPrincipal();
-            if (!string.IsNullOrEmpty(JwtToken))
+            var payload = jwt.Split('.')[1];
+            var jsonBytes = WebEncoders.Base64UrlDecode(payload);
+            var keyValuePairs = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonBytes);
+
+            return keyValuePairs.Select(kvp => new Claim(kvp.Key, kvp.Value.ToString()));
+        }
+
+        public void MarkUserAsLoggedOut()
+        {
+            Console.WriteLine("Marking user as logged out");
+
+            // Логика для очистки состояния аутентификации
+            _authService.Logout();
+
+            var anonymousUser = new ClaimsPrincipal(new ClaimsIdentity());
+            NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(anonymousUser)));
+            Console.WriteLine("User marked as logged out");
+        }
+
+        public async Task UpdateAuthentication(string jwtToken)
+        {
+            ClaimsPrincipal claimsPrincipal;
+
+            if (!string.IsNullOrEmpty(jwtToken))
             {
-                Constans.JWTToken = JwtToken;
-                var getUSerClaims = DecryptToken(JwtToken);
-                claims = SetClaimPrincipal(getUSerClaims);
+                Constans.JWTToken = jwtToken;
+
+                var userClaims = DecryptToken(jwtToken);
+                if (userClaims != null && !string.IsNullOrEmpty(userClaims.Email))
+                {
+                    claimsPrincipal = SetClaimPrincipal(userClaims);
+                }
+                else
+                {
+                    claimsPrincipal = anonymous;
+                }
             }
-           else
+            else
             {
                 Constans.JWTToken = null!;
+                claimsPrincipal = anonymous;
             }
-            NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(claims)));
-          
+
+            NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(claimsPrincipal)));
         }
 
-
-
-
-
-        public static ClaimsPrincipal SetClaimPrincipal(CustomUserClaims claims)
+        private static ClaimsPrincipal SetClaimPrincipal(CustomUserClaims claims)
         {
-            if (claims.Email is null) return new ClaimsPrincipal();
             return new ClaimsPrincipal(new ClaimsIdentity(
                 new List<Claim>
                 {
-                    new (ClaimTypes.Email, claims.Email!)
+                new(ClaimTypes.Email, claims.Email)
                 }, "JwtAuth"));
         }
 
-        private static CustomUserClaims DecryptToken(string jwtToken)
+        private static CustomUserClaims? DecryptToken(string jwtToken)
         {
-            if (!string.IsNullOrEmpty(jwtToken)) { return new CustomUserClaims(); }
+            try
+            {
+                var handler = new JwtSecurityTokenHandler();
+                var token = handler.ReadJwtToken(jwtToken);
 
-            var handler = new JwtSecurityTokenHandler();
-            var token = handler.ReadJwtToken(jwtToken);
+                // Логируем весь токен для диагностики
+                Console.WriteLine($"Full Token: {jwtToken}");
 
-            var email = token.Claims.FirstOrDefault(_ => _.Type == ClaimTypes.Email);
-            return new CustomUserClaims(email!.Value);
+                // Логируем все claims для диагностики
+                foreach (var claim in token.Claims)
+                {
+                    Console.WriteLine($"Claim Type: {claim.Type}, Value: {claim.Value}");
+                }
+
+                // Попробуем найти email claim через другой метод
+                var emailClaim = token.Claims.FirstOrDefault(claim => claim.Type == JwtRegisteredClaimNames.Email);
+                if (emailClaim != null)
+                {
+                    Console.WriteLine($"Found email claim: {emailClaim.Value}");
+                    return new CustomUserClaims(emailClaim.Value);
+                }
+                else
+                {
+                    Console.WriteLine("Email claim not found.");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in DecryptToken: {ex.Message}");
+                return null;
+            }
         }
     }
+
 }
-    
+
 

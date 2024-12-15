@@ -1,19 +1,26 @@
-﻿body {
+﻿/* Установка flexbox для фиксации футера внизу */
+body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; /* Высота страницы = высоте окна браузера */
+    margin: 0;
 }
 
 .content {
-    flex: 1;
-    padding: 0px;
+    flex: 1; /* Растяжение основного контента */
+    padding: 0; /* Удаляем лишние отступы */
+}
+
+footer {
+    background-color: #222;
+    color: #ccc;
+    padding: 1.5rem 0;
+    text-align: center;
+    margin-top: auto; /* Закрепляет футер у низа страницы */
 }
 
 .why-us {
-    padding: 1rem 1rem;
-    background-color: #222;
-    color: #ccc;
-    text-align: center;
+    padding: 1rem;
 }
 
     .why-us ul {
@@ -31,14 +38,7 @@ h2 {
     color: white;
 }
 
-footer {
-    padding: 1.5rem 0;
-    text-align: center;
-    background-color: #222;
-    color: #ccc;
-    margin-top: auto;
-}
-
+/* Кнопка для контактов */
 .cta-button {
     padding: 0.8rem 1.5rem;
     background-color: #CC823F;
@@ -52,12 +52,7 @@ footer {
         background-color: #ad7542;
     }
 
-@media (min-width: 992px) {
-    .navbar-collapse {
-        display: flex !important;
-    }
-}
-
+/* Ссылки в футере */
 footer .footer-links a {
     color: #ccc;
     text-decoration: none;
@@ -71,9 +66,17 @@ footer .footer-links a {
         text-decoration: underline;
     }
 
-.btn-primary {
-    width: 100%;
-}
+/* Для адаптивности */
+@media (max-width: 768px) {
+    .why-us ul {
+        font-size: 0.9rem;
+    }
 
-.input {
+    footer .footer-links a {
+        font-size: 0.85rem;
+    }
+
+    .cta-button {
+        font-size: 0.9rem;
+    }
 }

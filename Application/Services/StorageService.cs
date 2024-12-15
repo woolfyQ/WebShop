@@ -1,67 +1,66 @@
-﻿//using Core;
-//using Core.DTO;
-//using Core.Entity;
-//using Infrastructure.Intefaces;
+﻿using Core.DTO;
+using Core.Entity;
+using Infrastructure.Intefaces;
 
-//namespace Application.Services
-//{
-//    public class StorageService : IStorageProductInterface<Storage, StorageDTO>
-//    {
-//        private readonly IRepository<ProductStorage> _storageRepository;
+namespace Application.Services
+{
+    public class StorageService : IStorageInterface<Storage, StorageDTO>
+    {
+        private readonly IStorageInterface<Storage, StorageDTO> _storageRepository;
 
-//        public StorageService(IRepository<ProductStorage> storageRepository)
-//        {
-//            _storageRepository = storageRepository;
-//        }
+        public StorageService(IStorageInterface<Storage, StorageDTO> storageRepository)
+        {
+            _storageRepository = storageRepository;
+        }
 
-//        public async Task<ProductStorage> Create(ProductStorageDTO dto, CancellationToken cancellationToken)
-//        {
-//            var productStorage = new ProductStorage
-//            {
-//                Id = Guid.NewGuid(),
-//                Amount = dto.Amount,
-//                Product = dto.Product
-//            };
-//            await _storageRepository.Create(productStorage, cancellationToken);
-//            return productStorage;
-//        }
 
-//        public async Task<ProductStorage> Update(ProductStorageDTO dto, CancellationToken cancellationToken)
-//        {
-//            var productStorage = await _storageRepository.GetByIdAsync(dto.Id, cancellationToken);
-//            if (productStorage == null)
-//            {
-//                throw new Exception("ProductStorage not found");
-//            }
+        public async Task<Storage>Create(StorageDTO storageDTO, CancellationToken cancellationToken)
+        {
+            var storage = new Storage();
+            {
+                storage.Id = Guid.NewGuid();
+                storage.Name = storageDTO.Name;
+            }
+            await _storageRepository.Create(storage, cancellationToken);
+            return storage;
 
-//            productStorage.Amount = dto.Amount;
-//            productStorage.Product = dto.Product;
+        }
+        public async Task<Storage>Update(StorageDTO storageDTO, CancellationToken cancellationToken)
+        {
+            var storage = await _storageRepository.GetByIdAsync(storageDTO.Id, cancellationToken);
 
-//            await _storageRepository.Update(productStorage, cancellationToken);
-//            return productStorage;
-//        }
+                storage.Id = storageDTO.Id;
+                storage.Name = storageDTO.Name;
 
-//        public async Task<ProductStorage> Delete(Guid id, CancellationToken cancellationToken)
-//        {
-//            var productStorage = await _storageRepository.GetByIdAsync(id, cancellationToken);
-//            if (productStorage == null)
-//            {
-//                throw new Exception("ProductStorage not found");
-//            }
+            await _storageRepository.Update(storage, cancellationToken);
 
-//            await _storageRepository.Delete(productStorage, cancellationToken);
-//            return productStorage;
-//        }
+            return storage;
+        }
+        public async Task<Storage>Delete(StorageDTO storageDTO, CancellationToken cancellationToken)
+        {
+            var storage = await _storageRepository.GetByIdAsync(storageDTO.Id, cancellationToken);
+            if (storage == null)
+            {
+                throw new Exception("Storage not found");
+            }
+            if (storage != null)
+            {
+                await _storageRepository.Delete(storage, cancellationToken);
+            }
+            return storage;
+        }
 
-//        public async Task<ProductStorage> GetByIdAsync(Guid id, CancellationToken cancellationToken)
-//        {
-//            var productStorage = await _storageRepository.GetByIdAsync(id, cancellationToken);
-//            if (productStorage == null)
-//            {
-//                throw new Exception("ProductStorage not found");
-//            }
+        public async Task<Storage> GetByIdAsync(Guid id, CancellationToken cancellationToken)
+        {
+            var storage = await _storageRepository.GetByIdAsync(id, cancellationToken);
+            if (storage == null)
+            {
+                throw new KeyNotFoundException($"Storage with ID {id} not found.");
+            }
+            return storage;
+        }
 
-//            return productStorage;
-//        }
-//    }
-//}
+
+
+    }
+}

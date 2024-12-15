@@ -1,6 +1,4 @@
-﻿
-
-namespace Core.Entity
+﻿namespace Core.Entity
 {
     public class ProductStorage : IEntity
     {

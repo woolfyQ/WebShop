@@ -25,7 +25,7 @@ namespace Application.Services
                 Cart = orderDTO.Cart,
                 User = orderDTO.User,
                 DateTime = DateTime.Now,
-                Products = orderDTO.Products ?? new List<ProductCart>(), // Обрабатываем ситуацию, если продукты не указаны
+                Products = orderDTO.Products ?? new List<ItemCart>(), // Обрабатываем ситуацию, если продукты не указаны
                 TotalPrice = orderDTO.TotalPrice
             };
 
@@ -47,14 +47,14 @@ namespace Application.Services
             {
                 foreach (var item in orderDTO.Cart.Products)
                 {
-                    // Создаем новый ProductCart для добавления в заказ
-                    var productCart = new ProductCart
+                    // Создаем новый ItemCart для добавления в заказ
+                    var productCart = new ItemCart
                     {
                         Product = item.Product,
                         Amount = item.Amount
                     };
 
-                    // Добавляем productCart в заказ
+                    // Добавляем ItemCart в заказ
                     order.Products.Add(productCart);
                     order.TotalPrice += item.Product.Price * item.Amount;
                 }
@@ -99,7 +99,7 @@ namespace Application.Services
             // Обновляем данные заказа
             order.Cart = orderDTO.Cart;
             order.User = orderDTO.User;
-            order.Products = orderDTO.Products ?? new List<ProductCart>(); 
+            order.Products = orderDTO.Products ?? new List<ItemCart>(); 
             order.TotalPrice = orderDTO.TotalPrice;
 
             // Обновляем заказ в репозитории

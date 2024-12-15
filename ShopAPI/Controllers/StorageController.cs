@@ -14,33 +14,21 @@
 //        }
 
 //        [HttpPost("Create")]
-//        public async Task<IActionResult> Create([FromBody] ProductStorageDTO wareHouseDTO)
+//        public async Task<IActionResult> Create([FromBody] StorageDTO wareHouseDTO, CancellationToken cancellationToken)
 //        {
 //            if (!ModelState.IsValid)
 //            {
 //                return BadRequest(ModelState);
 //            }
 
-//            var warehouse = await _storageService.Create(wareHouseDTO);
-//            return Ok(warehouse);
-//        }
-
-//        [HttpPost("AddProduct")]
-//        public async Task<IActionResult> AddProduct([FromBody] ProductStorageDTO wareHouseDTO, int amount,CancellationToken cancellationToken)
-//        {
-//            if (!ModelState.IsValid)
-//            {
-//                return BadRequest(ModelState);
-//            }
-
-//            var warehouse = await _storageService.AddProduct(wareHouseDTO, amount,cancellationToken);
+//            var warehouse = await _storageService.Create(wareHouseDTO, cancellationToken);
 //            return Ok(warehouse);
 //        }
 
 //        [HttpDelete("Delete/{id}")]
-//        public async Task<IActionResult> Delete(Guid Id,CancellationToken cancellationToken)
+//        public async Task<IActionResult> Delete(StorageDTO storageDTO CancellationToken cancellationToken)
 //        {
-//            var warehouse = await _storageService.Delete(Id,cancellationToken);
+//            var warehouse = await _storageService.Delete(storageDTO.Id, cancellationToken);
 //            return Ok(warehouse);
 //        }
 

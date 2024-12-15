@@ -4,7 +4,6 @@ using Core.Entity;
 using Infrastructure.Data;
 using Infrastructure.Intefaces;
 using Infrastructure.Repository;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -19,39 +18,35 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 
-//builder.Services.AddDistributedMemoryCache();  // Добавляем кэш для сессии
-
-
-//builder.Services.AddSession(options =>
-//{
-//    options.Cookie.HttpOnly = true;
-//    options.Cookie.IsEssential = true;  // Обязательно для работы с сессией
-//});
-
-
-builder.Services.AddScoped<IAuth, AuthService>();
-
 builder.Services.AddScoped<TokenProvider>();
 
-//builder.Services.AddHttpClient<AuthService>();
+builder.Services.AddDistributedMemoryCache();
 
-// Регистрация сервисов для работы с HttpContext
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(60);  // Устанавливаем время жизни сессии
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+builder.Services.AddHttpContextAccessor();
 
-//builder.Services.AddHttpContextAccessor();  // Для доступа к HttpContext
 
-builder.Services.AddScoped<IProductCartInteface<ProductCart, ProductCartDTO>, ProductCartRepository>();
-builder.Services.AddScoped<IUserInterface<User, UserDTO>, UserRepository>();
 builder.Services.AddScoped<ICartInterface<Cart, CartDTO>, CartRepository>();
 builder.Services.AddScoped<IProductInterface<Product, ProductDTO>, ProductRepository>();
+builder.Services.AddScoped<IUserInterface<User, UserDTO>, UserRepository>();
 builder.Services.AddScoped<IOrderInterface<Order, OrderDTO>, OrderRepository>();
 
 
-//builder.Services.AddScoped<ICartSessionService, CartSessionService>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
+
+builder.Services.AddScoped<IAuth, AuthService>();
+
 builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<ProductCartService>();
+
 builder.Services.AddScoped<CartService>();
+
 builder.Services.AddScoped<ProductService>();
+
 builder.Services.AddScoped<OrderService>();
 
 
@@ -74,10 +69,11 @@ builder.Services.AddAuthentication(options =>
     };
 });
 builder.Services.AddAuthentication();
+
 builder.Services.AddAuthorization();
 
-
-
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 builder.Services.AddControllers();
@@ -92,22 +88,6 @@ builder.Services.AddSwaggerGen();
 
 
 
-
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-   options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-//builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-//    .AddCookie(options => 
-//    {
-//        options.Cookie.Name = "auth_token";
-//        options.LoginPath = "/Login";
-//        options.Cookie.MaxAge = TimeSpan.FromMinutes(30);
-//        options.AccessDeniedPath = "/acces-denied";
-
-//    });
-
-//builder.Services.AddCascadingAuthenticationState();
-
 var app = builder.Build();
 
 SeedData.Initialize(app);
@@ -118,7 +98,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-//app.UseSession();
+app.UseSession();
 
 app.UseHttpsRedirection();
 

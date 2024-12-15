@@ -24,13 +24,13 @@ namespace Infrastructure.Repository
                 Id = dto.Id,  // Генерация нового Id
                 User = dto.User,      // Присваиваем пользователя из DTO
                 TotalPrice = 0,       // Изначально цена заказа 0
-                Products = new List<ProductCart>()  // Инициализируем коллекцию продуктов
+                Products = new List<ItemCart>()  // Инициализируем коллекцию продуктов
             };
 
             // Добавляем продукты из DTO в заказ
             foreach (var item in dto.Cart.Products)
             {
-                var productCart = new ProductCart
+                var productCart = new ItemCart
                 {
                     Product = item.Product,
                     Amount = item.Amount
@@ -68,7 +68,7 @@ namespace Infrastructure.Repository
             // Добавляем новые продукты из DTO в заказ
             foreach (var item in dto.Cart.Products)
             {
-                var productCart = new ProductCart
+                var productCart = new ItemCart
                 {
                     Product = item.Product,
                     Amount = item.Amount
@@ -101,7 +101,7 @@ namespace Infrastructure.Repository
             // Добавляем новые продукты из DTO в заказ
             foreach (var item in dto.Cart.Products)
             {
-                var productCart = new ProductCart
+                var productCart = new ItemCart  
                 {
                     Product = item.Product,
                     Amount = item.Amount
@@ -149,4 +149,3 @@ namespace Infrastructure.Repository
         }
     }
 }
-

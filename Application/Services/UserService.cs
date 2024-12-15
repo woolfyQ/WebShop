@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Application.Services
 {
-    public class UserService : IUserInterface<User, UserDTO>
+    public class UserService : IUserInterface<User,UserDTO>
     {
         private readonly IUserInterface<User, UserDTO> _userRepository;
         private readonly ILogger<UserService> _logger;

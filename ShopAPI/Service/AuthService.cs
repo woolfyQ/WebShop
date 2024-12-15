@@ -1,4 +1,5 @@
-﻿using ShopAPI.AuthResult;
+﻿using Blazored.LocalStorage;
+using ShopAPI.AuthResult;
 using ShopAPI.Models;
 
 namespace ShopAPI.Service
@@ -6,10 +7,12 @@ namespace ShopAPI.Service
     public class AuthService : IAuth
     {
         private readonly HttpClient _httpClient;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AuthService(HttpClient httpClient)
+        public AuthService(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
         {
             _httpClient = httpClient;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<RegisterResult> Register(RegisterModel registerModel)
@@ -22,9 +25,6 @@ namespace ShopAPI.Service
                 Console.WriteLine("Error" + errorcontent);
                 return new RegisterResult{ Success = false, Error = "Server error"};
             }
-
-
-
 
             var result = await responce.Content.ReadFromJsonAsync<RegisterResult>();
             Console.WriteLine("Register Done");
@@ -50,14 +50,19 @@ namespace ShopAPI.Service
             var responseContent = await response.Content.ReadFromJsonAsync<LoginResult>();
             Console.WriteLine($"[UI SignIn] Parsed response: Success={responseContent?.Success}, Token={responseContent?.Token}");
 
-            if (responseContent != null && responseContent.Success)
+            if(responseContent?.Success == true) 
             {
-                return responseContent;
+                _httpContextAccessor.HttpContext.Session.SetString("authToken", responseContent.Token);
             }
-            else
-            {
-                return new LoginResult { Success = false, Error = "Invalid response from server" };
-            }
+
+            return responseContent!;
         }
+
+        public async void Logout()
+        {
+             _httpContextAccessor.HttpContext.Session.Remove("authToken");  // удаление токена
+        }
+
+
     }
 }

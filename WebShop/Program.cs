@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using ShopAPI.Service;
 using WebShop.Components;
 using WebShop.Services;
-using Blazored.SessionStorage;
 using Microsoft.AspNetCore.Components.Authorization;
 using ShopAPI;
 
@@ -16,6 +15,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddScoped<ProductCartClientService>();
+
 builder.Services.AddScoped<ProductClientService>();
 
 builder.Services.AddAuthorization();
@@ -24,15 +24,20 @@ builder.Services.AddAuthentication();
 
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
 
-builder.Services.AddBlazoredSessionStorage();
-//builder.Services.AddScoped<ICartSessionService, CartSessionService>();
 
-
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(60);  // Устанавливаем время жизни сессии
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+builder.Services.AddHttpContextAccessor();
 
 // Register HttpClient before building the app
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5197") });
 
-// Register the DbContext before building the app
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -55,5 +60,5 @@ app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
-
+app.UseSession();
 app.Run();

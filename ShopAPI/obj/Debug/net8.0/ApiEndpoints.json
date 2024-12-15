@@ -33,6 +33,22 @@
   },
   {
     "ContainingType": "ShopAPI.Controllers.CartController",
+    "Method": "AddItemToCart",
+    "RelativePath": "api/Cart/AddItemToCart",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "itemCartDTO",
+        "Type": "Core.DTO.ItemCartDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShopAPI.Controllers.CartController",
     "Method": "CreateCart",
     "RelativePath": "api/Cart/CreateCart",
     "HttpMethod": "POST",
@@ -50,7 +66,7 @@
   {
     "ContainingType": "ShopAPI.Controllers.CartController",
     "Method": "DeleteCart",
-    "RelativePath": "api/Cart/DeleteCart{id}",
+    "RelativePath": "api/Cart/DeleteCart/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -66,7 +82,23 @@
   {
     "ContainingType": "ShopAPI.Controllers.CartController",
     "Method": "GetCartById",
-    "RelativePath": "api/Cart/GetCartBy{id}",
+    "RelativePath": "api/Cart/GetCartBy/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShopAPI.Controllers.CartController",
+    "Method": "GetCartItems",
+    "RelativePath": "api/Cart/GetCartItems/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -82,7 +114,7 @@
   {
     "ContainingType": "ShopAPI.Controllers.CartController",
     "Method": "UpdateCart",
-    "RelativePath": "api/Cart/UpdateCart{id}",
+    "RelativePath": "api/Cart/UpdateCart/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -95,22 +127,6 @@
       {
         "Name": "cartDTO",
         "Type": "Core.DTO.CartDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ShopAPI.Controllers.ProductController",
-    "Method": "Create",
-    "RelativePath": "api/Product",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "productDTO",
-        "Type": "Core.DTO.ProductDTO",
         "IsRequired": true
       }
     ],
@@ -144,20 +160,15 @@
   },
   {
     "ContainingType": "ShopAPI.Controllers.ProductController",
-    "Method": "Update",
-    "RelativePath": "api/Product/{id}",
-    "HttpMethod": "PUT",
+    "Method": "Create",
+    "RelativePath": "api/Product/Create",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "productDTO",
         "Type": "Core.DTO.ProductDTO",
-        "IsRequired": true
-      },
-      {
-        "Name": "id",
-        "Type": "",
         "IsRequired": true
       }
     ],
@@ -166,7 +177,7 @@
   {
     "ContainingType": "ShopAPI.Controllers.ProductController",
     "Method": "Delete",
-    "RelativePath": "api/Product/{id}",
+    "RelativePath": "api/Product/DeleteBy/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -180,77 +191,57 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ShopAPI.Controllers.ProductCartController",
-    "Method": "RemoveItemFromCart",
-    "RelativePath": "api/ProductCart/{cartId}/remove/{productId}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "cartId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "productId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ShopAPI.Controllers.ProductCartController",
-    "Method": "UpdateItemQuantity",
-    "RelativePath": "api/ProductCart/{cartId}/update/{productId}",
+    "ContainingType": "ShopAPI.Controllers.ProductController",
+    "Method": "Update",
+    "RelativePath": "api/Product/Update",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "cartId",
-        "Type": "System.Guid",
+        "Name": "productDTO",
+        "Type": "Core.DTO.ProductDTO",
         "IsRequired": true
-      },
-      {
-        "Name": "productId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "amount",
-        "Type": "System.Int32",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ShopAPI.Controllers.ProductCartController",
-    "Method": "AddItemToCart",
-    "RelativePath": "api/ProductCart/AddItemInCart",
+    "ContainingType": "ShopAPI.Controllers.UserController",
+    "Method": "CreateUser",
+    "RelativePath": "api/User/Create",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "cartId",
-        "Type": "System.Guid",
-        "IsRequired": false
-      },
-      {
-        "Name": "productCartDTO",
-        "Type": "Core.DTO.ProductCartDTO",
+        "Name": "userDTO",
+        "Type": "Core.DTO.UserDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ShopAPI.Controllers.OrderController",
-    "Method": "GetCart",
-    "RelativePath": "Order/{id}",
+    "ContainingType": "ShopAPI.Controllers.UserController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/User/Delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDTO",
+        "Type": "Core.DTO.UserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShopAPI.Controllers.UserController",
+    "Method": "GetUserById",
+    "RelativePath": "api/User/GetById",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -258,59 +249,27 @@
       {
         "Name": "id",
         "Type": "System.Guid",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ShopAPI.Controllers.OrderController",
-    "Method": "AddProduct",
-    "RelativePath": "Order/AddProduct",
+    "ContainingType": "ShopAPI.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/User/Update",
     "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "orderDTO",
-        "Type": "Core.DTO.OrderDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ShopAPI.Controllers.OrderController",
-    "Method": "Create",
-    "RelativePath": "Order/Create",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "orderDTO",
-        "Type": "Core.DTO.OrderDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ShopAPI.Controllers.OrderController",
-    "Method": "Delete",
-    "RelativePath": "Order/Delete/{id}",
-    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
         "Type": "System.Guid",
-        "IsRequired": true
+        "IsRequired": false
       },
       {
-        "Name": "cancellationToken",
-        "Type": "System.Threading.CancellationToken",
+        "Name": "userDTO",
+        "Type": "Core.DTO.UserDTO",
         "IsRequired": true
       }
     ],

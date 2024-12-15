@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Application\\Application.csproj": {}
+    "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Application\\Application.csproj": {
+    "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\Volko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Application\\obj\\",
+        "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\PC_Work\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Volko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC_Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,17 +22,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj"
+              "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj"
               },
-              "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -60,6 +61,10 @@
               "target": "Package",
               "version": "[2.4.0, )"
             },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[9.0.1, )"
@@ -81,21 +86,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj": {
+    "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\Volko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\obj\\",
+        "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\PC_Work\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Volko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC_Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -103,6 +108,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -126,6 +132,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[9.0.1, )"
@@ -147,21 +157,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Volko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\PC_Work\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Volko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC_Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -169,14 +179,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Volko\\Desktop\\123\\WebShop\\Core\\Core.csproj"
+              "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj"
               }
             }
           }
@@ -207,6 +218,14 @@
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
               "target": "Package",
               "version": "[9.0.0, )"
             },
@@ -245,7 +264,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

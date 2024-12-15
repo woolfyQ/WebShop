@@ -1,9 +1,5 @@
 ﻿using Core.DTO;
-using Core.Entity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.JSInterop;
-using System.Net.Http.Json;
-using System.Text.Json;
 
 namespace WebShop.Services
 {
@@ -17,16 +13,18 @@ namespace WebShop.Services
             _httpClient = httpClient;
             _jsRuntime = jsRuntime;
         }
-        public async Task<bool> AddProductToCart(Guid userId, Guid cartId, ProductCartDTO productCartDTO)
+        public async Task<bool> AddProductToCart(AddItemToCartDTO addItemToCartDTO)
         {
-            var response = await _httpClient.PostAsJsonAsync("api/productcart/AddItemInCart", productCartDTO);
+            var response = await _httpClient.PostAsJsonAsync("api/productcart/AddItemInCart", addItemToCartDTO);
 
             if (response.IsSuccessStatusCode)
             {
+                Console.WriteLine("Предмет добавлен в коризну");
                 return true;
             }
             else
             {
+                Console.WriteLine("Предмет ne добавлен в коризну");
                 return false;
             }
         }

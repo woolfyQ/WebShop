@@ -9,12 +9,10 @@ namespace ShopAPI.Controllers
     public class CartController : ControllerBase
     {
         private readonly CartService _cartService;
-       
 
         public CartController(CartService cartService)
         {
-            _cartService = cartService;
-           
+            _cartService = cartService;   
         }
 
 
@@ -27,11 +25,55 @@ namespace ShopAPI.Controllers
             }
 
             var cart = await _cartService.CreateCart(cartDTO);
-            return CreatedAtAction(nameof(GetCartById), new { id = cart.Id }, cart); // Возвращаем созданную корзину
+            return CreatedAtAction(nameof(GetCartById), new { id = cart.Id }, cart); 
         }
 
-       
-        [HttpGet("GetCartBy{id}")]
+        [HttpPost("AddItemToCart")]
+        public async Task<IActionResult> AddItemToCart([FromBody] ItemCartDTO itemCartDTO, CancellationToken cancellationToken)
+        {
+            if (itemCartDTO == null)
+            {
+                return BadRequest("Invalid data.");
+            }
+
+            try
+            {
+                var cart = await _cartService.AddItemToCart(itemCartDTO.Cart, itemCartDTO, cancellationToken);
+                return Ok(cart);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error: {ex.Message}");
+            }
+        }
+
+        [HttpGet("GetCartItems/{id}")]
+        public async Task<IActionResult> GetCartItems(Guid id)
+        {
+            var cart = await _cartService.GetByIdAsync(id);
+            if (cart == null)
+            {
+                return NotFound($"Cart with ID {id} not found.");
+            }
+
+            // Возвращаем корзину с товарами
+            var cartDTO = new CartDTO
+            {
+                Id = cart.Id,
+                TotalPrice = cart.TotalPrice,
+                Products = (ICollection<Core.Entity.ItemCart>)cart.Products.Select(p => new ItemCartDTO
+                {
+                    ProductId = p.ProductId,
+                    ProductName = p.Product.Name,
+                    Quantity = p.Amount,
+                    Price = p.Product.Price
+                }).ToList()
+            };
+
+            return Ok(cartDTO);
+        }
+
+        [HttpGet("GetCartBy/{id}")]
         public async Task<IActionResult> GetCartById(Guid id)
         {
             var cart = await _cartService.GetByIdAsync(id);
@@ -44,7 +86,7 @@ namespace ShopAPI.Controllers
         }
 
         // PUT: api/cart/{id}
-        [HttpPut("UpdateCart{id}")]
+        [HttpPut("UpdateCart/{id}")]
         public async Task<IActionResult> UpdateCart(Guid id, [FromBody] CartDTO cartDTO)
         {
             if (cartDTO == null || cartDTO.Id != id)
@@ -57,7 +99,7 @@ namespace ShopAPI.Controllers
         }
 
         // DELETE: api/cart/{id}
-        [HttpDelete("DeleteCart{id}")]
+        [HttpDelete("DeleteCart/{id}")]
         public async Task<IActionResult> DeleteCart(Guid id)
         {
             var cartDTO = new CartDTO { Id = id }; // Мы передаем только ID для удаления

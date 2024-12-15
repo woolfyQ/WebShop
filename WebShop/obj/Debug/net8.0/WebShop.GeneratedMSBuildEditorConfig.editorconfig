@@ -9,79 +9,79 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebShop
 build_property.RootNamespace = WebShop
-build_property.ProjectDir = C:\Users\Volko\Desktop\123\WebShop\WebShop\
+build_property.ProjectDir = C:\Users\PC_Work\Desktop\Photo\WebShop\WebShop\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Volko\Desktop\123\WebShop\WebShop
+build_property.MSBuildProjectDirectory = C:\Users\PC_Work\Desktop\Photo\WebShop\WebShop
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/App.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/Pages/Cart.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/Pages/Cart.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJ0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/Pages/Login.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMb2dpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/Pages/Register.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3Rlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/Routes.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/_Imports.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/Layout/Footer.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/Layout/Footer.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcRm9vdGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-epea0dwd8e
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/Layout/Header.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/Layout/Header.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcSGVhZGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-38wp7j1w7j
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/Layout/MainLayout.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-x299w2psqf
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/Layout/NavMenu.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-upbg1bxp9q
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/Pages/Catalog.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/Pages/Catalog.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXRhbG9nLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-j6q90gfod3
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/Pages/Contacts.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/Pages/Contacts.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb250YWN0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-rxtmqatt3z
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/Pages/Delivery.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/Pages/Delivery.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEZWxpdmVyeS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-ukcxggubo2
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/Pages/Main.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/Pages/Main.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYWluLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-l4n9lvrpot
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/Pages/Oferta.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/Pages/Oferta.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xPZmVydGEucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-courht60rh
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/Pages/Policy.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/Pages/Policy.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQb2xpY3kucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-qeo2qtcyv1
 
-[C:/Users/Volko/Desktop/123/WebShop/WebShop/Components/Pages/ProductCard.razor]
+[C:/Users/PC_Work/Desktop/Photo/WebShop/WebShop/Components/Pages/ProductCard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQcm9kdWN0Q2FyZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-6hw8ab58ri

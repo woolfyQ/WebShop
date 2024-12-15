@@ -13,24 +13,18 @@
     @if (productDTO != null)
     {
         <div class="product-main">
-            
             <div class="image-section">
                 <div class="main-image">
                     <img src="@productDTO.Img" alt="@productDTO.Name" />
                 </div>
                 <div class="product-gallery">
-                  @*   <div class="gallery-thumbnails">
-                        <img src="" alt="Image 1" />
-                        <img src="" alt="Image 2" />
-                        <img src="" alt="Image 3" />
-                    </div> *@
+                    @* Дополнительные изображения можно добавить позже *@
                 </div>
             </div>
 
-        
             <div class="product-content">
                 <h1 class="product-title">@productDTO.Name</h1>
-                <p class="product-price">@productDTO.Price руб.</p>
+                <p class="product-price">@productDTO.Price ₽</p>
                 <button class="add-to-cart" @onclick="AddToCart">Добавить в корзину</button>
                 <p class="product-description">@productDTO.Description</p>
                 <ul class="product-specs">
@@ -53,44 +47,15 @@
 @code {
     [Parameter]
     public Guid ProductId { get; set; }
-
     private ProductDTO productDTO;
-    private ProductCartDTO productCartModel;
-    private string? ErrorMessage;
-    private string? SuccessMessage;
-    private string? token;
-    public int Amount;
 
     protected override async Task OnInitializedAsync()
     {
         productDTO = await productClientService.GetByIdAsync(ProductId);
-        
-    
     }
+
     private async Task AddToCart()
     {
-       
-        if (string.IsNullOrEmpty(token))
-        {
-            ErrorMessage = "Токен не найден!";
-            return;
-        }
-
-        var productCartModel = new ProductCartDTO
-            {
-                ProductId = ProductId,
-                Amount = Amount
-            };
-        // Http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-        var response = await Http.PostAsJsonAsync("api/productcart/AddItemInCart", productCartModel);
-
-        if (response.IsSuccessStatusCode)
-        {
-            SuccessMessage = "Товар успешно добавлен в корзину!";
-        }
-        else
-        {
-            ErrorMessage = "Ошибка при добавлении товара в корзину.";
-        }
+        // Реализация добавления в корзину
     }
 }

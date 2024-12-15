@@ -7,5 +7,6 @@ namespace ShopAPI.Service
     {
         Task<RegisterResult> Register(RegisterModel registerModel);
         Task<LoginResult> SignIn(LoginModel loginModel);
+        void Logout();
     }
 }
