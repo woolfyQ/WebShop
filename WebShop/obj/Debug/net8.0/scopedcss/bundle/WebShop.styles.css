@@ -13,11 +13,13 @@ body[b-epea0dwd8e] {
 }
 
 footer[b-epea0dwd8e] {
+   
+    width: 100%;
+    bottom: 0;
     background-color: #222;
     color: #ccc;
     padding: 1.5rem 0;
     text-align: center;
-    margin-top: auto; /* Закрепляет футер у низа страницы */
 }
 
 .why-us[b-epea0dwd8e] {
@@ -269,84 +271,19 @@ footer .footer-links a[b-38wp7j1w7j] {
     }
 }
 /* _content/WebShop/Components/Layout/MainLayout.razor.rz.scp.css */
-body[b-x299w2psqf] {
+/*body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}*/
+
+.home-layout .content[b-x299w2psqf] {
+    min-height: auto; /* ��������� ���������� ������ */
 }
 
 .content[b-x299w2psqf] {
-    flex: 1;
+    min-height: 100vh;
     padding: 0px;
-}
-
-.why-us[b-x299w2psqf] {
-    padding: 1rem 1rem;
-    background-color: #222;
-    color: #ccc;
-    text-align: center;
-}
-
-    .why-us ul[b-x299w2psqf] {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .why-us li[b-x299w2psqf] {
-        margin: 0.5rem 0;
-        font-size: 1.1rem;
-    }
-
-h2[b-x299w2psqf] {
-    color: white;
-}
-
-footer[b-x299w2psqf] {
-    padding: 1.5rem 0;
-    text-align: center;
-    background-color: #222;
-    color: #ccc;
-    margin-top: auto; 
-}
-
-.cta-button[b-x299w2psqf] {
-    padding: 0.8rem 1.5rem;
-    background-color: #CC823F;
-    color: #ffffff;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-    .cta-button:hover[b-x299w2psqf] {
-        background-color: #ad7542;
-    }
-
-@media (min-width: 992px) {
-    .navbar-collapse[b-x299w2psqf] {
-        display: flex !important;
-    }
-}
-
-footer .footer-links a[b-x299w2psqf] {
-    color: #ccc;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 1rem;
-    transition: color 0.3s;
-}
-
-    footer .footer-links a:hover[b-x299w2psqf] {
-        color: #fff;
-        text-decoration: underline;
-    }
-
-.btn-primary[b-x299w2psqf] {
-    width: 100%;
-}
-
-.input[b-x299w2psqf] {
 }
 /* _content/WebShop/Components/Layout/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-upbg1bxp9q] {
@@ -485,7 +422,7 @@ body[b-j6q90gfod3] {
 
 .products-cards[b-j6q90gfod3] {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, minmax(1rem, 1fr));
     gap: 1.5rem;
 }
 
@@ -505,7 +442,7 @@ body[b-j6q90gfod3] {
 
     .card img[b-j6q90gfod3] {
         width: 100%;
-        height: 180px;
+        height: 300px;
         object-fit: cover;
         border-bottom: 1px solid #eee;
     }
@@ -686,6 +623,7 @@ body[b-l4n9lvrpot] {
     font-family: Arial, sans-serif;
 }
 
+
 .banner[b-l4n9lvrpot] {
     text-align: center;
     padding: 3rem 1rem;
@@ -735,7 +673,8 @@ h2[b-l4n9lvrpot]{
     background: #1e1e1e;
     border-radius: 8px;
     overflow: hidden;
-    width: 300px;
+    width: 350px;
+    height: 450px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     transition: transform 0.2s ease;
     display: flex;
@@ -749,7 +688,7 @@ h2[b-l4n9lvrpot]{
 
     .card img[b-l4n9lvrpot] {
         width: 100%;
-        height: 200px;
+        height: 250px;
         object-fit: cover;
     }
 

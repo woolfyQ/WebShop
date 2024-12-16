@@ -6,6 +6,8 @@ namespace Infrastructure.Intefaces
 {
     public interface ICartInterface<TEntity, TDto>
     {
+
+
         Task<TEntity> AddItemToCart(CartDTO cartDTO, ItemCartDTO itemCartDTO, CancellationToken cancellationToken);
 
         Task<TEntity> UpdateItemQuantity(ItemCartDTO itemCartDTO, int amount);

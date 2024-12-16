@@ -6,8 +6,10 @@ using WebShop.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using ShopAPI;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
+//builder.Services.AddScoped<CartServiceClient>();
 
 builder.Services.AddScoped<IAuth, AuthService>();
 // Add services to the container.

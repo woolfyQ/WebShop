@@ -59,10 +59,10 @@ namespace Application.Services
                 cart.Products.Add(itemCart);
             }
 
-            // Обновляем общую цену корзины
+            
             cart.TotalPrice = cart.Products.Sum(p => p.Amount * p.Product.Price);
 
-            // Обновляем корзину в базе данных
+         
             await _cartRepository.UpdateCart(cart);
 
             

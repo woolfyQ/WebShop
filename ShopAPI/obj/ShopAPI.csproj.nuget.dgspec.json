@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\ShopAPI\\ShopAPI.csproj": {}
+    "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\ShopAPI\\ShopAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Application\\Application.csproj": {
+    "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\PC_Work\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Application\\obj\\",
+        "outputPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC_Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,11 +29,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj"
+              "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Core\\Core.csproj"
               },
-              "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -60,6 +60,10 @@
             "Blazored.SessionStorage": {
               "target": "Package",
               "version": "[2.4.0, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.1.1, )"
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
@@ -90,14 +94,14 @@
         }
       }
     },
-    "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj": {
+    "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj",
+        "projectPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\PC_Work\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\obj\\",
+        "outputPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC_Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -161,14 +165,14 @@
         }
       }
     },
-    "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\PC_Work\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC_Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -186,8 +190,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj"
+              "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Core\\Core.csproj"
               }
             }
           }
@@ -268,14 +272,14 @@
         }
       }
     },
-    "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\ShopAPI\\ShopAPI.csproj": {
+    "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\ShopAPI\\ShopAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\ShopAPI\\ShopAPI.csproj",
+        "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\ShopAPI\\ShopAPI.csproj",
         "projectName": "ShopAPI",
-        "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\ShopAPI\\ShopAPI.csproj",
+        "projectPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\ShopAPI\\ShopAPI.csproj",
         "packagesPath": "C:\\Users\\PC_Work\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\ShopAPI\\obj\\",
+        "outputPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\ShopAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC_Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -293,11 +297,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Application\\Application.csproj"
+              "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Application\\Application.csproj"
               },
-              "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj"
+              "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Core\\Core.csproj"
               }
             }
           }
@@ -324,6 +328,10 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.1.1, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

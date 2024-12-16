@@ -1,4 +1,4 @@
-﻿@page "/Cart"
+﻿@* @page "/Cart"
 @using WebShop.Services
 @using Core.DTO
 
@@ -10,22 +10,53 @@
 
 @inject HttpClient Http
 
+@inject CartServiceClient Client
 
 <PageTitle>Корзина</PageTitle>
 
 
 
 
-    <div class="text-center my-4">
-        <p>Ваша корзина пуста. Добавьте товары в корзину, чтобы продолжить.</p>
-        <a href="/Catalog" class="btn btn-outline-primary">Перейти в каталог</a>
-    </div>
-
+<div class="container my-4">
+    @if (cart == null || cart.Products == null || !cart.Products.Any())
+    {
+        <div class="text-center">
+            <p>Ваша корзина пуста. Добавьте товары в корзину, чтобы продолжить.</p>
+            <a href="/Catalog" class="btn btn-outline-primary">Перейти в каталог</a>
+        </div>
+    }
+    else
+    {
+        
+    }
+</div>
 
 @code {
-  
+    private CartDTO? cart;
+
+  protected override async Task OnInitializedAsync()
+{
+    // Получаем корзину при инициализации компонента
+    cart = await Client.GetCartAsync();
+    Console.WriteLine(cart?.ToString() ?? "Корзина не получена");
+
+    // Если корзина пуста или не получена, выводим сообщение
+    if (cart == null || cart.Products == null || !cart.Products.Any())
+    {
+        // Обработка пустой корзины
+        Console.WriteLine("Корзина пуста или не найдена.");
+    }
+}
+
+    // private async Task Checkout()
+    // {
+    //     // Логика перехода к оформлению заказа (например, редирект или переход на страницу оформления)
+    //     NavigationManager.NavigateTo("/Checkout");
+    // }
+}
 
 
 
     
 }
+ *@

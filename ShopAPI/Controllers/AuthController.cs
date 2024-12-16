@@ -1,5 +1,6 @@
 ﻿using Application.Services;
 using Core.DTO;
+using Core.Entity;
 using Microsoft.AspNetCore.Mvc;
 using ShopAPI.Models;
 using ShopAPI.Service;
@@ -18,9 +19,10 @@ namespace ShopAPI.Controllers
         public AuthController(UserService userservice, TokenProvider tokenProvider)
         {
             _tokenProvider = tokenProvider;
-            
+       
             _userService = userservice;
         }
+
 
         [HttpPost("SignIn")]
         public async Task<IActionResult> SignIn([FromBody] LoginModel loginModel, CancellationToken cancellationToken)

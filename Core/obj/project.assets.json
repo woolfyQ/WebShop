@@ -780,11 +780,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\Core.csproj",
+      "projectPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Core\\Core.csproj",
       "packagesPath": "C:\\Users\\PC_Work\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\Core\\obj\\",
+      "outputPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PC_Work\\AppData\\Roaming\\NuGet\\NuGet.Config",

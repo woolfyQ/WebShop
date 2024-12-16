@@ -1,42 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\",
+  "WorkspaceRootPath": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|c:\\users\\pc_work\\desktop\\photo\\webshop\\webshop\\components\\layout\\header.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|solutionrelative:webshop\\components\\layout\\header.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|c:\\users\\pc_work\\desktop\\pgsql\\webshop\\shopapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|solutionrelative:shopapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|c:\\users\\pc_work\\desktop\\photo\\webshop\\shopapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|solutionrelative:shopapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|c:\\users\\pc_work\\desktop\\photo\\webshop\\shopapi\\customauthstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|solutionrelative:shopapi\\customauthstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|c:\\users\\pc_work\\desktop\\photo\\webshop\\shopapi\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|solutionrelative:shopapi\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|c:\\users\\pc_work\\desktop\\photo\\webshop\\webshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|c:\\users\\pc_work\\desktop\\pgsql\\webshop\\webshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|solutionrelative:webshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|c:\\users\\pc_work\\desktop\\photo\\webshop\\webshop\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|solutionrelative:webshop\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|c:\\users\\pc_work\\desktop\\photo\\webshop\\shopapi\\service\\iauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F608C7C-9AF3-42D9-848D-AE4917A2F391}|ShopAPI\\ShopAPI.csproj|solutionrelative:shopapi\\service\\iauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|c:\\users\\pc_work\\desktop\\photo\\webshop\\webshop\\components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|solutionrelative:webshop\\components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|c:\\users\\pc_work\\desktop\\photo\\webshop\\webshop\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|solutionrelative:webshop\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|c:\\users\\pc_work\\desktop\\pgsql\\webshop\\webshop\\components\\pages\\cart.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1988F56B-86BE-465B-9360-F3FA80C9F351}|WebShop\\WebShop.csproj|solutionrelative:webshop\\components\\pages\\cart.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,123 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\ShopAPI\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "ShopAPI\\Controllers\\CartController.cs",
+              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\ShopAPI\\Controllers\\CartController.cs*",
+              "RelativeToolTip": "ShopAPI\\Controllers\\CartController.cs*",
+              "ViewState": "AgIAADEAAAAAAAAAAAAvwDwAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T21:50:26.328Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\ShopAPI\\Program.cs",
-              "RelativeDocumentMoniker": "ShopAPI\\Program.cs",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\ShopAPI\\Program.cs",
-              "RelativeToolTip": "ShopAPI\\Program.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAiwGQAAAARAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\WebShop\\Program.cs",
+              "RelativeDocumentMoniker": "WebShop\\Program.cs",
+              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\WebShop\\Program.cs*",
+              "RelativeToolTip": "WebShop\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T23:58:52.637Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\ShopAPI\\Service\\AuthService.cs",
-              "RelativeDocumentMoniker": "ShopAPI\\Service\\AuthService.cs",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\ShopAPI\\Service\\AuthService.cs",
-              "RelativeToolTip": "ShopAPI\\Service\\AuthService.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAowDwAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T23:57:01.851Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IAuth.cs",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\ShopAPI\\Service\\IAuth.cs",
-              "RelativeDocumentMoniker": "ShopAPI\\Service\\IAuth.cs",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\ShopAPI\\Service\\IAuth.cs",
-              "RelativeToolTip": "ShopAPI\\Service\\IAuth.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T23:56:50.902Z",
+              "WhenOpened": "2024-12-16T21:50:18.624Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CustomAuthStateProvider.cs",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\ShopAPI\\CustomAuthStateProvider.cs",
-              "RelativeDocumentMoniker": "ShopAPI\\CustomAuthStateProvider.cs",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\ShopAPI\\CustomAuthStateProvider.cs",
-              "RelativeToolTip": "ShopAPI\\CustomAuthStateProvider.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAmwDsAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T23:02:10.631Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Routes.razor",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\WebShop\\Components\\Routes.razor",
-              "RelativeDocumentMoniker": "WebShop\\Components\\Routes.razor",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\WebShop\\Components\\Routes.razor",
-              "RelativeToolTip": "WebShop\\Components\\Routes.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAfAAAAAAAAAA==",
+              "Title": "Cart.razor",
+              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\WebShop\\Components\\Pages\\Cart.razor",
+              "RelativeDocumentMoniker": "WebShop\\Components\\Pages\\Cart.razor",
+              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\pgsql\\WebShop\\WebShop\\Components\\Pages\\Cart.razor",
+              "RelativeToolTip": "WebShop\\Components\\Pages\\Cart.razor",
+              "ViewState": "AgIAACMAAAAAAAAAAAAswD0AAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-14T22:56:16.432Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Header.razor",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\WebShop\\Components\\Layout\\Header.razor",
-              "RelativeDocumentMoniker": "WebShop\\Components\\Layout\\Header.razor",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\WebShop\\Components\\Layout\\Header.razor",
-              "RelativeToolTip": "WebShop\\Components\\Layout\\Header.razor",
-              "ViewState": "AgIAAHAAAAAAAAAAAAASwIIAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-14T22:42:16.857Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\WebShop\\Program.cs",
-              "RelativeDocumentMoniker": "WebShop\\Program.cs",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\WebShop\\Program.cs",
-              "RelativeToolTip": "WebShop\\Program.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAD4AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T00:04:56.82Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Login.razor",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\WebShop\\Components\\Pages\\Login.razor",
-              "RelativeDocumentMoniker": "WebShop\\Components\\Pages\\Login.razor",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\WebShop\\Components\\Pages\\Login.razor",
-              "RelativeToolTip": "WebShop\\Components\\Pages\\Login.razor",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAcwC8AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-14T22:44:45.074Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Register.razor",
-              "DocumentMoniker": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\WebShop\\Components\\Pages\\Register.razor",
-              "RelativeDocumentMoniker": "WebShop\\Components\\Pages\\Register.razor",
-              "ToolTip": "C:\\Users\\PC_Work\\Desktop\\Photo\\WebShop\\WebShop\\Components\\Pages\\Register.razor",
-              "RelativeToolTip": "WebShop\\Components\\Pages\\Register.razor",
-              "ViewState": "AgIAACMAAAAAAAAAAAAcwD8AAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-14T22:43:49.649Z",
+              "WhenOpened": "2024-12-16T21:49:42.636Z",
               "EditorCaption": ""
             }
           ]

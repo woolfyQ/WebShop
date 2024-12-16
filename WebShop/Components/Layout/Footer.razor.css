@@ -12,11 +12,13 @@ body {
 }
 
 footer {
+   
+    width: 100%;
+    bottom: 0;
     background-color: #222;
     color: #ccc;
     padding: 1.5rem 0;
     text-align: center;
-    margin-top: auto; /* Закрепляет футер у низа страницы */
 }
 
 .why-us {

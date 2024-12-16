@@ -10,13 +10,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ShopAPI;
 using ShopAPI.Service;
+using ShopAPI.Services;
 using ShopAPI.Token;
 using System.Text;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Services.AddScoped<TestSession>();
 
 builder.Services.AddScoped<TokenProvider>();
 
