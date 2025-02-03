@@ -1,0 +1,173 @@
+﻿@page "/Cart"
+@using Core.DTO
+@using ShopAPI
+@using ShopAPI.Service
+@using System.IdentityModel.Tokens.Jwt
+@using WebShop.Services
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+@inject ProductCartClientService productCartService
+@inject OrderClientService OrderClientService
+<PageTitle>Корзина</PageTitle>
+
+<div class="container my-5">
+    @if (cart == null || cart.Products == null || !cart.Products.Any())
+    {
+        <div class="text-center">
+            <p class="lead">Ваша корзина пуста. Добавьте товары в корзину, чтобы продолжить.</p>
+            <a href="/Catalog" class="btn btn-lg btn-outline-secondary">Перейти в каталог</a>
+        </div>
+    }
+    else
+    {
+        <h3 class="mb-4">Содержимое вашей корзины</h3>
+        <div class="row">
+            @foreach (var product in cart.Products)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm hover-zoom" style="width: 100%">
+                        <img src="@product.Product?.Img" class="card-img-top" @onclick="() => OnProductClick(product.Product)" alt="@product.Product?.Name" />
+                        <div class="card-body">
+                            <h5 class="card-title">@product.Product?.Name</h5>
+                            <p class="card-text">Цена: @product.Product?.Price.ToString("C")</p>
+                            <p class="card-text">Количество: @product.Amount</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-outline-danger" @onclick="() => RemoveItem(cart.Id, product.Product.Id, 1)">Удалить</button>
+                                <button class="btn btn-outline-success" @onclick="() => AddProductToCart(product.Id,cart.Id, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="mt-4 text-center">
+            <h4>Общая стоимость: @cart.TotalPrice.ToString("C")</h4>
+            <a @onclick="ProcessOrder" class="btn btn-lg btn-outline-primary mt-3">Перейти к оформлению заказа</a>
+        </div>
+    }
+</div>
+
+@if (errorMessage != null)
+{
+    <div class="alert alert-danger mt-4">
+        <strong>Ошибка:</strong> @errorMessage
+    </div>
+}
+
+@code {
+    private Guid? userId;
+    private CartDTO? cart;
+    private string? errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var token = Constans.JWTToken;
+        if (!string.IsNullOrEmpty(token))
+        {
+            userId = GetUserIdFromToken(token);
+
+            if (userId.HasValue)
+            {
+                await LoadCart();
+            }
+        }
+    }
+
+    private async Task ProcessOrder()
+    {
+        try
+        {
+            var orderDTO = new OrderDTO
+                {
+                    UserId = userId.Value,
+                    CartId = cart.Id,
+                    TotalPrice = cart.TotalPrice,
+                    DateTime = DateTime.Now,
+
+                };
+
+            var createdOrder = await OrderClientService.CreateOrder(orderDTO);
+            Console.WriteLine($"Заказ создан: ID = {createdOrder.Id}, Общая сумма = {createdOrder.TotalPrice}");
+            if (createdOrder != null)
+            {
+                NavigationManager.NavigateTo("/OrderProcessing");
+            }
+            else
+            {
+                errorMessage = "Ошибка при создании заказа.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Ошибка: {ex.Message}";
+        }
+    }
+
+    private async Task LoadCart()
+    {
+        try
+        {
+            cart = await productCartService.GetCartByUserId(userId.Value);
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Не удалось загрузить корзину: {ex.Message}";
+        }
+    }
+
+    private void OnProductClick(ProductDTO product)
+    {
+        NavigationManager.NavigateTo($"/ProductCard/{product.Id}");
+    }
+
+    private async Task AddProductToCart(Guid cartId, Guid productId, int amount)
+    {
+        var result = await productCartService.UpdateItemQuantity(cartId, productId, amount);
+        if(result)
+        {
+            Console.WriteLine("Item Add");
+        }
+        else
+        {
+            Console.WriteLine("Error");
+        }
+
+    }
+
+    private async Task RemoveItem(Guid cartId, Guid productId, int amount)
+    {
+        try
+        {
+            var result = await productCartService.RemoveProductFromCart(cartId, productId, amount);
+
+            if (result)
+            {
+                await LoadCart();
+            }
+            else
+            {
+                errorMessage = "Ошибка при удалении товара.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Ошибка: {ex.Message}";
+        }
+    }
+
+    private Guid? GetUserIdFromToken(string token)
+    {
+        var handler = new JwtSecurityTokenHandler();
+        var jwtToken = handler.ReadJwtToken(token);
+
+        var userIdClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub);
+
+        if (userIdClaim != null && Guid.TryParse(userIdClaim.Value, out var userId))
+        {
+            return userId;
+        }
+
+        return null;
+    }
+}

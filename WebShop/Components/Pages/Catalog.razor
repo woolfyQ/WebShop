@@ -1,0 +1,71 @@
+﻿@using Core.DTO
+@using WebShop.Services
+@inject ProductClientService ProductClientService
+@inject NavigationManager NavigationManager
+
+@rendermode InteractiveServer
+@layout MainLayout
+@page "/Catalog"
+
+<PageTitle>Catalog</PageTitle>
+
+<div class="banner">
+    <h1>Каталог товаров</h1>
+    <p>Найдите идеальные решения для вашего сада и двора</p>
+</div>
+
+<section class="product-section">
+    <div class="product-grid">
+        @if (isLoading)
+        {
+            <div class="loading">Загрузка...</div>
+        }
+        else if (productsDTO != null && productsDTO.Any())
+        {
+            <ul class="products-cards">
+                @foreach (var product in productsDTO)
+                {
+                    <li class="card" @onclick="() => OnProductClick(product)">
+                        <img src="@product.Img" alt="@product.Name" />
+                        <div class="card-body">
+                            <span class="title">@product.Name</span>
+                            <span class="price">@product.Price ₽</span>
+                        </div>
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <ul class="products-cards">
+                <li class="no-products">Товары не найдены.</li>
+            </ul>
+        }
+    </div>
+</section>
+@code {
+    private IEnumerable<ProductDTO> productsDTO;
+    private bool isLoading = true;
+    private string errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            productsDTO = await ProductClientService.GetProductsAsync();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Произошла ошибка при загрузке товаров.";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private void OnProductClick(ProductDTO product)
+    {
+        NavigationManager.NavigateTo($"/ProductCard/{product.Id}");
+    }
+}

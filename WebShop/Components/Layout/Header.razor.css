@@ -1,0 +1,190 @@
+﻿body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    padding: 0px;
+}
+
+.why-us {
+    padding: 1rem 1rem;
+    background-color: #222;
+    color: #ccc;
+    text-align: center;
+}
+
+    .why-us ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .why-us li {
+        margin: 0.5rem 0;
+        font-size: 1.1rem;
+    }
+
+h2 {
+    color: white;
+}
+
+footer {
+    padding: 1.5rem 0;
+    text-align: center;
+    background-color: #222;
+    color: #ccc;
+    margin-top: auto;
+}
+
+.cta-button {
+    padding: 0.8rem 1.5rem;
+    background-color: #CC823F;
+    color: #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+    .cta-button:hover {
+        background-color: #ad7542;
+        transform: scale(1.05);
+    }
+
+.btn {
+    border-width: 0px;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+    .btn:hover {
+        background-color: #444;
+        color: #fff;
+    }
+
+.navbar-collapse {
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+    .navbar-brand:hover {
+        color: #FFC107;
+    }
+
+.modal-content {
+    background-color: #fff; /* Белый фон для форм */
+    color: #333; /* Черный цвет текста */
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+footer .footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+    footer .footer-links a:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+.btn-primary {
+    width: 100%;
+    background-color: black;
+    border-radius: 5px;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+.input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+    .input:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+.d-flex {
+    display: flex;
+    justify-content: space-around;
+}
+/* Адаптивность для больших экранов */
+@media (min-width: 992px) {
+    .navbar-collapse {
+        display: flex !important;
+    }
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 992px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    footer .footer-links a {
+        font-size: 0.9rem;
+    }
+}
+
+/* Адаптивность для сверхмаленьких устройств */
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    footer {
+        padding: 1rem 0;
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}

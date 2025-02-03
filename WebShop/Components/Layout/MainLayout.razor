@@ -1,0 +1,33 @@
+﻿@using ShopAPI.Models
+@using ShopAPI.Service
+@using System.Text.Json
+@inherits LayoutComponentBase
+@inject NavigationManager nav
+
+<body class="@(isHomePage ? "home-layout" : "default-layout")">
+
+<div class="page-container">
+    <Header />
+
+    <div class="content">
+        @Body 
+    </div>
+
+    <Footer />
+</div>
+</body>
+@code {
+  
+        private bool isHomePage;
+
+        protected override void OnInitialized()
+        {
+            // Проверяем текущий URL или маршрут
+            var currentUri = nav.Uri;
+            isHomePage = currentUri.EndsWith("/") || currentUri.Contains("/Main");
+            // isHomePage = currentUri.EndsWith("/") || currentUri.Contains("/Contacts");
+        }
+    
+
+  
+}

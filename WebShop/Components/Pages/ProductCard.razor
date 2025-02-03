@@ -1,0 +1,131 @@
+﻿@page "/ProductCard/{ProductId:guid}"
+
+@rendermode InteractiveServer
+
+@using Application.Services
+@using Core.DTO
+@using ShopAPI
+@using System.IdentityModel.Tokens.Jwt
+@using WebShop.Services
+
+@inject ProductClientService productClientService
+@inject ProductCartClientService CartService
+
+<div class="product-detail">
+    @if (productDTO != null)
+    {
+        <div class="product-main">
+            <div class="image-section">
+                <div class="main-image">
+                    <img src="@productDTO.Img" alt="@productDTO.Name" />
+                </div>
+            </div>
+
+            <div class="product-content">
+                <h1 class="product-title">@productDTO.Name</h1>
+                <p class="product-price">@productDTO.Price ₽</p>
+
+                <button class="add-to-cart" @onclick="AddProductToCart">Добавить в корзину</button>
+                <div class="product-description">
+                    <h2>Преимущества колпака для забора</h2>
+                    <ul>
+                        <li>
+                            <strong>Защита от погоды:</strong>
+                            Колпак защищает верхнюю часть столба от воздействия различных погодных условий, таких как дождь, снег, и ультрафиолетовые лучи, что помогает продлить срок службы забора.
+                        </li>
+                        <li>
+                            <strong>Предотвращение скопления влаги и грязи:</strong>
+                            Благодаря колпаку предотвращается скопление влаги и грязи внутри столба, что может привести к его разрушению и повреждению.
+                        </li>
+                        <li>
+                            <strong>Завершенный вид:</strong>
+                            Добавляя завершенный и стильный вид вашему забору, колпак придает ему эстетическое совершенство, дополняя общий дизайн вашего участка.
+                        </li>
+                        <li>
+                            <strong>Защита растений и цветов:</strong>
+                            Колпак служит дополнительным средством защиты от солнца, помогая сохранить растения и цветы рядом с забором от излишней солнечной экспозиции.
+                        </li>
+                        <li>
+                            <strong>Прочность и долговечность:</strong>
+                            Изготовленный из прочных материалов, колпак является долговечным решением, которое прослужит вам долгие годы, обеспечивая надежную защиту и стильный внешний вид вашего забора.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="not-found">
+            <span>Товар не найден</span>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public Guid ProductId { get; set; }
+
+    private ProductDTO productDTO;
+    private CartDTO cart;
+    private ItemCartDTO itemCartDTO;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Получаем информацию о товаре
+        productDTO = await productClientService.GetByIdAsync(ProductId);
+
+        // Загружаем корзину пользователя
+        var token = Constans.JWTToken; // Получаем токен из глобальной константы
+        if (!string.IsNullOrEmpty(token))
+        {
+            var userId = GetUserIdFromToken(token);
+            if (userId.HasValue)
+            {
+                cart = await CartService.GetCartByUserId(userId.Value);
+            }
+        }
+    }
+
+    private async Task AddProductToCart()
+    {
+        if (cart == null || productDTO == null)
+        {
+            Console.WriteLine("Данные не подгружены");
+            return;
+        }
+
+        itemCartDTO = new ItemCartDTO
+            {
+                CartId = cart.Id,
+                ProductId = productDTO.Id,
+                Amount = 1
+            };
+
+        bool result = await CartService.AddProductToCart(itemCartDTO);
+
+        if (result)
+        {
+            Console.WriteLine("Продукт успешно добавлен в корзину");
+        }
+        else
+        {
+            Console.WriteLine("Ошибка при добавлении продукта в корзину");
+        }
+    }
+
+    private Guid? GetUserIdFromToken(string token)
+    {
+        var handler = new JwtSecurityTokenHandler();
+        var jwtToken = handler.ReadJwtToken(token);
+
+        var userIdClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub);
+
+        if (userIdClaim != null && Guid.TryParse(userIdClaim.Value, out var userId))
+        {
+            return userId;
+        }
+
+        return null;
+    }
+}

@@ -1,0 +1,113 @@
+﻿
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+
+.banner {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #333;
+    color: #ffffff;
+}
+
+    .banner h1 {
+        color: white;
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .banner p {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+h2{
+    color:white;
+}
+.cta-button {
+    padding: 0.8rem 1.5rem;
+    background-color: #CC823F;
+    color: #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+    .cta-button:hover {
+        background-color: #ad7542;
+    }
+
+.popular-products {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.product-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.card {
+    background: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 350px;
+    height: 450px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+.card-body {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px; /* Чтобы текст и кнопка всегда выравнивались */
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #f1f1f1;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.order-link {
+    display: block;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #444;
+    padding: 0.75rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+    .order-link:hover {
+        background-color: #666666;
+    }
+
+@media (max-width: 768px) {
+    .product-grid {
+        display:grid;
+        
+    }
+}

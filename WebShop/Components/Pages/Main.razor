@@ -1,0 +1,44 @@
+﻿@using Core.Entity
+@using WebShop.Components.Layout
+@page "/"
+@layout MainLayout
+@rendermode InteractiveServer
+<PageTitle>Main</PageTitle>
+
+<div class="banner">
+    <h1>Добро пожаловать в MYROOF</h1>
+    <p>Лучшие решения для вашего двора и сада</p>
+    <a href="/Catalog" class="cta-button">Посмотреть каталог</a>
+</div>
+
+<section class="popular-products">
+    <h2>Популярные продукты</h2>
+    <div class="product-grid">
+        <div class="card">
+            <img src="/pics/FaceKolp.jpg" alt="Колпак на столб забора" />
+            <div class="card-body">
+                <p class="card-text">
+                    Колпак на столб забора — защита от осадков и декор в одном.
+                </p>
+                <a href="/Catalog" class="order-link">Подробнее</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="/pics/Dimka.jpg" alt="Дымник на трубу" />
+            <div class="card-body">
+                <p class="card-text">
+                    Дымник на трубу — надежная защита от дождя и снега.
+                </p>
+                <a href="/Contacts" class="order-link">Подробнее</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@code {
+   
+
+
+} 

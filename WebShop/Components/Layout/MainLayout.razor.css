@@ -1,0 +1,14 @@
+/*body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}*/
+
+.home-layout .content {
+    min-height: auto; /* Отключить прибивание футера */
+}
+
+.content {
+    min-height: 100vh;
+    padding: 0px;
+}

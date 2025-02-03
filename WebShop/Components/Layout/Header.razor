@@ -1,0 +1,162 @@
+﻿    @using Core.DTO
+    @using ShopAPI
+    @using ShopAPI.Models
+    @using ShopAPI.Service
+    @using System.Text.Json
+    @inherits LayoutComponentBase
+    @inject IAuth AuthService
+    @inject NavigationManager nav
+    @inject AuthenticationStateProvider AuthenticationStateProvider
+
+
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">MyRoof</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">Главная</NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="/Catalog">Каталог</NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="/Contacts">Контакты</NavLink>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center">
+
+                    <AuthorizeView>
+                        <NotAuthorized>
+                            <button class="btn btn-outline-light me-2 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                <i class="fas fa-sign-in-alt me-1"></i> 
+                            </button>
+
+                            <button class="btn btn-outline-light d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#registerModal">
+                                <i class="fas fa-user-plus me-1"></i> 
+                            </button>
+                        </NotAuthorized>
+                    </AuthorizeView>
+                    <a href="/Cart" class="btn btn-outline-light ms-3 d-flex align-items-center position-relative">
+                        <i class="fas fa-shopping-cart me-2"></i>
+                        <span class="badge bg-warning text-dark position-absolute top-0 start-100 translate-middle"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Модальное окно для Входа -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Вход</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <EditForm FormName="Login" Model="@loginModel" OnValidSubmit="HandleLogin">
+                        <DataAnnotationsValidator />
+
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <InputText id="loginEmail" class="form-control" @bind-Value="loginModel.Email" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Пароль</label>
+                            <InputText id="loginPassword" type="password" class="form-control" @bind-Value="loginModel.Password" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Войти</button>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Регистрация</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <EditForm FormName="Register" Model="@registerModel" OnValidSubmit="HandleRegistration">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <InputText id="registerEmail" class="form-control" @bind-Value="registerModel.Email" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Пароль</label>
+                            <InputText id="registerPassword" type="password" class="form-control" @bind-Value="registerModel.Password" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Подтвердите пароль</label>
+                            <InputText id="confirmPassword" type="password" class="form-control" @bind-Value="registerModel.ConfirmPassword" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    @code {
+        [SupplyParameterFromForm(FormName = "Login")]
+        public LoginModel loginModel { get; set; } = new();
+        [SupplyParameterFromForm(FormName = "Register")]
+        public RegisterModel registerModel { get; set; } = new();
+        private bool isAuthenticated;
+        public UserDTO userDTO;
+
+      
+
+
+        private async Task HandleLogin()
+        {
+            var response = await AuthService.SignIn(loginModel);
+            if (response.Success)
+            {
+                Console.WriteLine("Login successful. Updating authentication state...");
+                var customAuthStateProvider = (CustomAuthStateProvider)AuthStateProvider;
+                await customAuthStateProvider.UpdateAuthentication(response.Token);
+           
+                var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+                isAuthenticated = authState.User.Identity?.IsAuthenticated ?? false;
+                Console.WriteLine($"Authentication state updated: {isAuthenticated}");
+
+                StateHasChanged(); // Обновляем состояние
+                nav.NavigateTo("/"); // Переход на главную
+            }
+            else
+            {
+                Console.WriteLine("Login failed.");
+            }
+        }
+
+        private async Task HandleRegistration()
+        {
+
+            Console.WriteLine("Регистрация началась...");
+
+            var result = await AuthService.Register(registerModel);
+
+            if (result.Success)
+            {
+                Console.WriteLine("Good");
+            }
+            registerModel = new();
+        }
+   
+
+
+
+    }
