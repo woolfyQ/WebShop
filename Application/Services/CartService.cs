@@ -56,7 +56,13 @@ namespace Application.Services
             var product = cart.Products.FirstOrDefault(p => p.ProductId == productId);
             if (product == null) throw new InvalidOperationException("Продукт не найден в корзине.");
 
+
             product.Amount += amount;
+
+            cart.TotalPrice = cart.Products
+                .Where(p => p.Product != null)
+                .Sum(p => p.Amount * p.Product.Price);
+
             await _cartRepository.UpdateCart(cart);
             return cart;
         }

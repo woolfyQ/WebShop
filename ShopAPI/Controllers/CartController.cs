@@ -15,7 +15,7 @@ namespace ShopAPI.Controllers
             _cartService = cartService;
         }
 
-        [HttpPost("ItemQuantity")]
+        [HttpPut("ItemQuantity/{cartId}/{productId}/{amount}")]
         public async Task<IActionResult> UpdateItemQuantity(Guid cartId, Guid productId, int amount, CancellationToken cancellationToken)
         {
             try

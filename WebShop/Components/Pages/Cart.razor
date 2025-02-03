@@ -33,7 +33,7 @@
                             <p class="card-text">Количество: @product.Amount</p>
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-outline-danger" @onclick="() => RemoveItem(cart.Id, product.Product.Id, 1)">Удалить</button>
-                                <button class="btn btn-outline-success" @onclick="() => AddProductToCart(product.Product)">+</button>
+                                <button class="btn btn-outline-success" @onclick="() => AddProductToCart(cart.Id, product.Product.Id, 1)">+</button>
                             </div>
                         </div>
                     </div>
@@ -121,21 +121,18 @@
         NavigationManager.NavigateTo($"/ProductCard/{product.Id}");
     }
 
-    private async Task AddProductToCart(ProductDTO product)
+    private async Task AddProductToCart(Guid cartId, Guid productId, int amount)
     {
-        var itemCartDTO = new ItemCartDTO
-            {
-                CartId = cart.Id,
-                ProductId = product.Id,
-                Amount = 1
-            };
-
-        bool result = await productCartService.AddProductToCart(itemCartDTO);
-
-        if (!result)
+        var result = await productCartService.UpdateItemQuantity(cartId, productId, amount);
+        if(result)
         {
-            errorMessage = "Ошибка при добавлении продукта в корзину";
+            await LoadCart();
         }
+        else
+        {
+            Console.WriteLine("Error");
+        }
+
     }
 
     private async Task RemoveItem(Guid cartId, Guid productId, int amount)

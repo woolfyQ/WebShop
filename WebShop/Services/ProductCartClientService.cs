@@ -39,7 +39,7 @@ namespace WebShop.Services
                     Amount = amount
                 };
 
-                var response = await _httpClient.PostAsJsonAsync("api/Cart/ItemQuantity", itemCartDTO);
+                var response = await _httpClient.PutAsJsonAsync($"api/Cart/ItemQuantity/{cartId}/{productId}/{amount}", itemCartDTO);
                 return response.IsSuccessStatusCode;
             }
             catch (Exception)
